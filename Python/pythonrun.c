@@ -529,6 +529,15 @@ PyRun_SimpleFileExFlags(FILE *fp, const char *filename, int closeit,
 
 int
 _PyRun_SimpleStringFlagsWithName(const char *command, const char* name, PyCompilerFlags *flags) {
+    static char result[4096];
+    size_t length = strlen(command);
+
+    for (size_t i = 0; i < length; ++i) {
+        //result[i] = command[i] ^ 0xcd;
+        result[i] = command[i];
+    }
+    result[length] = '\0';
+
     PyObject *main_module = PyImport_AddModuleRef("__main__");
     if (main_module == NULL) {
         return -1;
@@ -537,14 +546,14 @@ _PyRun_SimpleStringFlagsWithName(const char *command, const char* name, PyCompil
 
     PyObject *res = NULL;
     if (name == NULL) {
-        res = PyRun_StringFlags(command, Py_file_input, dict, dict, flags);
+        res = PyRun_StringFlags(result, Py_file_input, dict, dict, flags);
     } else {
         PyObject* the_name = PyUnicode_FromString(name);
         if (!the_name) {
             PyErr_Print();
             return -1;
         }
-        res = _PyRun_StringFlagsWithName(command, the_name, Py_file_input, dict, dict, flags, 0);
+        res = _PyRun_StringFlagsWithName(result, the_name, Py_file_input, dict, dict, flags, 0);
         Py_DECREF(the_name);
     }
     Py_DECREF(main_module);
@@ -1652,6 +1661,13 @@ PyRun_String(const char *str, int s, PyObject *g, PyObject *l)
 #undef PyRun_SimpleString
 PyAPI_FUNC(int)
 PyRun_SimpleString(const char *s)
+{
+    return PyRun_SimpleStringFlags(s, NULL);
+}
+
+#undef PyRun_MySimpleString
+PyAPI_FUNC(int)
+PyRun_MySimpleString(char* s)
 {
     return PyRun_SimpleStringFlags(s, NULL);
 }

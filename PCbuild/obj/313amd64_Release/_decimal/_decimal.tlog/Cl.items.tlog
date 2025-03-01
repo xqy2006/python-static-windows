@@ -1,0 +1,15 @@
+D:\Python-3.13.0\Modules\_decimal\_decimal.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\_decimal.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\basearith.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\basearith.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\constants.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\constants.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\context.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\context.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\convolute.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\convolute.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\crt.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\crt.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\difradix2.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\difradix2.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\fnt.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\fnt.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\fourstep.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\fourstep.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\io.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\io.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\mpalloc.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\mpalloc.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\mpdecimal.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\mpdecimal.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\numbertheory.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\numbertheory.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\sixstep.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\sixstep.obj
+D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\transpose.c;D:\Python-3.13.0\PCbuild\obj\313amd64_Release\_decimal\transpose.obj

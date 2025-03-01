@@ -69,11 +69,12 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CF7AC3D1-E2DF-41D2-BEA6-1E2556CDEA26}</ProjectGuid>
     <RootNamespace>pythoncore</RootNamespace>
+    <WindowsTargetPlatformVersion>$(DefaultWindowsSDKVersion)</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="python.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -103,15 +104,460 @@
       <AdditionalIncludeDirectories>$(PySourcePath)Modules\_hacl\include;$(PySourcePath)Modules\_hacl\internal;$(PySourcePath)Python;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="$(IncludeExternals)">$(zlibDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_USRDLL;Py_BUILD_CORE;Py_BUILD_CORE_BUILTIN;Py_ENABLE_SHARED;MS_DLL_ID="$(SysWinVer)";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="$(IncludeExternals)">_Py_HAVE_ZLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="$(IncludeExternals)">_Py_HAVE_ZLIB;_USRDLL;Py_BUILD_CORE;Py_BUILD_CORE_BUILTIN;Py_NO_ENABLE_SHARED;MS_DLL_ID="$(SysWinVer)";WIN32;$(_Py3NamePreprocessorDefinition);$(_PlatformPreprocessorDefinition)$(_DebugPreprocessorDefinition)$(_PydPreprocessorDefinition)_WINDLL</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(UseJIT)' == 'true'">_Py_JIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(UseTIER2)' != '' and '$(UseTIER2)' != '0'">_Py_TIER2=$(UseTIER2);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalDependencies>version.lib;ws2_32.lib;pathcch.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Modules\extras\codecs.c" />
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm.c" />
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__cli.c" />
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__gui.c" />
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__std.c" />
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__utils.c" />
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__version.c" />
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm___dist_ver.c" />
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm___monitor.c" />
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm___tqdm_pandas.c" />
+    <ClCompile Include="..\frozen_modules\frozen.c" />
+    <ClCompile Include="..\frozen_modules\frozen_extensions.c" />
+    <ClCompile Include="..\frozen_modules\M_abc.c" />
+    <ClCompile Include="..\frozen_modules\M_argparse.c" />
+    <ClCompile Include="..\frozen_modules\M_ast.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__base_events.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__base_futures.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__base_subprocess.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__base_tasks.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__constants.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__coroutines.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__events.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__exceptions.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__format_helpers.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__futures.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__locks.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__log.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__mixins.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__proactor_events.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__protocols.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__queues.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__runners.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__selector_events.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__sslproto.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__staggered.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__streams.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__subprocess.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__taskgroups.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__tasks.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__threads.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__timeouts.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__transports.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__trsock.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__unix_events.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__windows_events.c" />
+    <ClCompile Include="..\frozen_modules\M_asyncio__windows_utils.c" />
+    <ClCompile Include="..\frozen_modules\M_base64.c" />
+    <ClCompile Include="..\frozen_modules\M_bdb.c" />
+    <ClCompile Include="..\frozen_modules\M_bisect.c" />
+    <ClCompile Include="..\frozen_modules\M_bz2.c" />
+    <ClCompile Include="..\frozen_modules\M_calendar.c" />
+    <ClCompile Include="..\frozen_modules\M_cmd.c" />
+    <ClCompile Include="..\frozen_modules\M_code.c" />
+    <ClCompile Include="..\frozen_modules\M_codecs.c" />
+    <ClCompile Include="..\frozen_modules\M_codeop.c" />
+    <ClCompile Include="..\frozen_modules\M_collections.c" />
+    <ClCompile Include="..\frozen_modules\M_collections__abc.c" />
+    <ClCompile Include="..\frozen_modules\M_concurrent.c" />
+    <ClCompile Include="..\frozen_modules\M_concurrent__futures.c" />
+    <ClCompile Include="..\frozen_modules\M_concurrent__futures__process.c" />
+    <ClCompile Include="..\frozen_modules\M_concurrent__futures__thread.c" />
+    <ClCompile Include="..\frozen_modules\M_concurrent__futures___base.c" />
+    <ClCompile Include="..\frozen_modules\M_contextlib.c" />
+    <ClCompile Include="..\frozen_modules\M_contextvars.c" />
+    <ClCompile Include="..\frozen_modules\M_copy.c" />
+    <ClCompile Include="..\frozen_modules\M_copyreg.c" />
+    <ClCompile Include="..\frozen_modules\M_csv.c" />
+    <ClCompile Include="..\frozen_modules\M_ctypes.c" />
+    <ClCompile Include="..\frozen_modules\M_ctypes__macholib.c" />
+    <ClCompile Include="..\frozen_modules\M_ctypes__macholib__dyld.c" />
+    <ClCompile Include="..\frozen_modules\M_ctypes__macholib__dylib.c" />
+    <ClCompile Include="..\frozen_modules\M_ctypes__macholib__framework.c" />
+    <ClCompile Include="..\frozen_modules\M_ctypes__util.c" />
+    <ClCompile Include="..\frozen_modules\M_ctypes__wintypes.c" />
+    <ClCompile Include="..\frozen_modules\M_ctypes___aix.c" />
+    <ClCompile Include="..\frozen_modules\M_ctypes___endian.c" />
+    <ClCompile Include="..\frozen_modules\M_curses.c" />
+    <ClCompile Include="..\frozen_modules\M_curses__has_key.c" />
+    <ClCompile Include="..\frozen_modules\M_dataclasses.c" />
+    <ClCompile Include="..\frozen_modules\M_datetime.c" />
+    <ClCompile Include="..\frozen_modules\M_decimal.c" />
+    <ClCompile Include="..\frozen_modules\M_difflib.c" />
+    <ClCompile Include="..\frozen_modules\M_dis.c" />
+    <ClCompile Include="..\frozen_modules\M_doctest.c" />
+    <ClCompile Include="..\frozen_modules\M_email.c" />
+    <ClCompile Include="..\frozen_modules\M_email__base64mime.c" />
+    <ClCompile Include="..\frozen_modules\M_email__charset.c" />
+    <ClCompile Include="..\frozen_modules\M_email__contentmanager.c" />
+    <ClCompile Include="..\frozen_modules\M_email__encoders.c" />
+    <ClCompile Include="..\frozen_modules\M_email__errors.c" />
+    <ClCompile Include="..\frozen_modules\M_email__feedparser.c" />
+    <ClCompile Include="..\frozen_modules\M_email__generator.c" />
+    <ClCompile Include="..\frozen_modules\M_email__header.c" />
+    <ClCompile Include="..\frozen_modules\M_email__headerregistry.c" />
+    <ClCompile Include="..\frozen_modules\M_email__iterators.c" />
+    <ClCompile Include="..\frozen_modules\M_email__message.c" />
+    <ClCompile Include="..\frozen_modules\M_email__parser.c" />
+    <ClCompile Include="..\frozen_modules\M_email__policy.c" />
+    <ClCompile Include="..\frozen_modules\M_email__quoprimime.c" />
+    <ClCompile Include="..\frozen_modules\M_email__utils.c" />
+    <ClCompile Include="..\frozen_modules\M_email___encoded_words.c" />
+    <ClCompile Include="..\frozen_modules\M_email___header_value_parser.c" />
+    <ClCompile Include="..\frozen_modules\M_email___parseaddr.c" />
+    <ClCompile Include="..\frozen_modules\M_email___policybase.c" />
+    <ClCompile Include="..\frozen_modules\M_encodings.c" />
+    <ClCompile Include="..\frozen_modules\M_encodings__aliases.c" />
+    <ClCompile Include="..\frozen_modules\M_encodings__latin_1.c" />
+    <ClCompile Include="..\frozen_modules\M_encodings__mbcs.c" />
+    <ClCompile Include="..\frozen_modules\M_encodings__utf_8.c" />
+    <ClCompile Include="..\frozen_modules\M_enum.c" />
+    <ClCompile Include="..\frozen_modules\M_fnmatch.c" />
+    <ClCompile Include="..\frozen_modules\M_fractions.c" />
+    <ClCompile Include="..\frozen_modules\M_ftplib.c" />
+    <ClCompile Include="..\frozen_modules\M_functools.c" />
+    <ClCompile Include="..\frozen_modules\M_genericpath.c" />
+    <ClCompile Include="..\frozen_modules\M_getopt.c" />
+    <ClCompile Include="..\frozen_modules\M_getpass.c" />
+    <ClCompile Include="..\frozen_modules\M_gettext.c" />
+    <ClCompile Include="..\frozen_modules\M_glob.c" />
+    <ClCompile Include="..\frozen_modules\M_gzip.c" />
+    <ClCompile Include="..\frozen_modules\M_hashlib.c" />
+    <ClCompile Include="..\frozen_modules\M_heapq.c" />
+    <ClCompile Include="..\frozen_modules\M_hmac.c" />
+    <ClCompile Include="..\frozen_modules\M_html.c" />
+    <ClCompile Include="..\frozen_modules\M_html__entities.c" />
+    <ClCompile Include="..\frozen_modules\M_http.c" />
+    <ClCompile Include="..\frozen_modules\M_http__client.c" />
+    <ClCompile Include="..\frozen_modules\M_http__cookiejar.c" />
+    <ClCompile Include="..\frozen_modules\M_http__server.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__abc.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__machinery.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___adapters.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___collections.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___functools.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___itertools.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___meta.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___text.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__readers.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__resources.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__resources__abc.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__resources__readers.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__resources___adapters.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__resources___common.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__resources___functional.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__resources___itertools.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib__util.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib___abc.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib___bootstrap.c" />
+    <ClCompile Include="..\frozen_modules\M_importlib___bootstrap_external.c" />
+    <ClCompile Include="..\frozen_modules\M_inspect.c" />
+    <ClCompile Include="..\frozen_modules\M_io.c" />
+    <ClCompile Include="..\frozen_modules\M_ipaddress.c" />
+    <ClCompile Include="..\frozen_modules\M_json.c" />
+    <ClCompile Include="..\frozen_modules\M_json__decoder.c" />
+    <ClCompile Include="..\frozen_modules\M_json__encoder.c" />
+    <ClCompile Include="..\frozen_modules\M_json__scanner.c" />
+    <ClCompile Include="..\frozen_modules\M_keyword.c" />
+    <ClCompile Include="..\frozen_modules\M_linecache.c" />
+    <ClCompile Include="..\frozen_modules\M_locale.c" />
+    <ClCompile Include="..\frozen_modules\M_logging.c" />
+    <ClCompile Include="..\frozen_modules\M_lzma.c" />
+    <ClCompile Include="..\frozen_modules\M_mimetypes.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__connection.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__context.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__dummy.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__dummy__connection.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__forkserver.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__heap.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__managers.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__pool.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__popen_fork.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__popen_forkserver.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__popen_spawn_posix.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__popen_spawn_win32.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__process.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__queues.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__reduction.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__resource_sharer.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__resource_tracker.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__sharedctypes.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__shared_memory.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__spawn.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__synchronize.c" />
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__util.c" />
+    <ClCompile Include="..\frozen_modules\M_netrc.c" />
+    <ClCompile Include="..\frozen_modules\M_ntpath.c" />
+    <ClCompile Include="..\frozen_modules\M_nturl2path.c" />
+    <ClCompile Include="..\frozen_modules\M_numbers.c" />
+    <ClCompile Include="..\frozen_modules\M_opcode.c" />
+    <ClCompile Include="..\frozen_modules\M_operator.c" />
+    <ClCompile Include="..\frozen_modules\M_os.c" />
+    <ClCompile Include="..\frozen_modules\M_pathlib.c" />
+    <ClCompile Include="..\frozen_modules\M_pathlib___abc.c" />
+    <ClCompile Include="..\frozen_modules\M_pathlib___local.c" />
+    <ClCompile Include="..\frozen_modules\M_pdb.c" />
+    <ClCompile Include="..\frozen_modules\M_pickle.c" />
+    <ClCompile Include="..\frozen_modules\M_pkgutil.c" />
+    <ClCompile Include="..\frozen_modules\M_platform.c" />
+    <ClCompile Include="..\frozen_modules\M_plistlib.c" />
+    <ClCompile Include="..\frozen_modules\M_posixpath.c" />
+    <ClCompile Include="..\frozen_modules\M_pprint.c" />
+    <ClCompile Include="..\frozen_modules\M_pydoc.c" />
+    <ClCompile Include="..\frozen_modules\M_pydoc_data.c" />
+    <ClCompile Include="..\frozen_modules\M_pydoc_data__topics.c" />
+    <ClCompile Include="..\frozen_modules\M_py_compile.c" />
+    <ClCompile Include="..\frozen_modules\M_queue.c" />
+    <ClCompile Include="..\frozen_modules\M_quopri.c" />
+    <ClCompile Include="..\frozen_modules\M_random.c" />
+    <ClCompile Include="..\frozen_modules\M_re.c" />
+    <ClCompile Include="..\frozen_modules\M_reprlib.c" />
+    <ClCompile Include="..\frozen_modules\M_re___casefix.c" />
+    <ClCompile Include="..\frozen_modules\M_re___compiler.c" />
+    <ClCompile Include="..\frozen_modules\M_re___constants.c" />
+    <ClCompile Include="..\frozen_modules\M_re___parser.c" />
+    <ClCompile Include="..\frozen_modules\M_rlcompleter.c" />
+    <ClCompile Include="..\frozen_modules\M_runpy.c" />
+    <ClCompile Include="..\frozen_modules\M_secrets.c" />
+    <ClCompile Include="..\frozen_modules\M_selectors.c" />
+    <ClCompile Include="..\frozen_modules\M_shlex.c" />
+    <ClCompile Include="..\frozen_modules\M_shutil.c" />
+    <ClCompile Include="..\frozen_modules\M_signal.c" />
+    <ClCompile Include="..\frozen_modules\M_site.c" />
+    <ClCompile Include="..\frozen_modules\M_socket.c" />
+    <ClCompile Include="..\frozen_modules\M_socketserver.c" />
+    <ClCompile Include="..\frozen_modules\M_ssl.c" />
+    <ClCompile Include="..\frozen_modules\M_stat.c" />
+    <ClCompile Include="..\frozen_modules\M_statistics.c" />
+    <ClCompile Include="..\frozen_modules\M_string.c" />
+    <ClCompile Include="..\frozen_modules\M_struct.c" />
+    <ClCompile Include="..\frozen_modules\M_subprocess.c" />
+    <ClCompile Include="..\frozen_modules\M_sysconfig.c" />
+    <ClCompile Include="..\frozen_modules\M_tarfile.c" />
+    <ClCompile Include="..\frozen_modules\M_tempfile.c" />
+    <ClCompile Include="..\frozen_modules\M_test.c" />
+    <ClCompile Include="..\frozen_modules\M_test__support.c" />
+    <ClCompile Include="..\frozen_modules\M_test__support__import_helper.c" />
+    <ClCompile Include="..\frozen_modules\M_test__support__os_helper.c" />
+    <ClCompile Include="..\frozen_modules\M_test__support__script_helper.c" />
+    <ClCompile Include="..\frozen_modules\M_textwrap.c" />
+    <ClCompile Include="..\frozen_modules\M_threading.c" />
+    <ClCompile Include="..\frozen_modules\M_tkinter.c" />
+    <ClCompile Include="..\frozen_modules\M_tkinter__constants.c" />
+    <ClCompile Include="..\frozen_modules\M_token.c" />
+    <ClCompile Include="..\frozen_modules\M_tokenize.c" />
+    <ClCompile Include="..\frozen_modules\M_traceback.c" />
+    <ClCompile Include="..\frozen_modules\M_tracemalloc.c" />
+    <ClCompile Include="..\frozen_modules\M_tty.c" />
+    <ClCompile Include="..\frozen_modules\M_types.c" />
+    <ClCompile Include="..\frozen_modules\M_typing.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__async_case.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__case.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__loader.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__main.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__mock.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__result.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__runner.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__signals.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__suite.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest__util.c" />
+    <ClCompile Include="..\frozen_modules\M_unittest___log.c" />
+    <ClCompile Include="..\frozen_modules\M_urllib.c" />
+    <ClCompile Include="..\frozen_modules\M_urllib__error.c" />
+    <ClCompile Include="..\frozen_modules\M_urllib__parse.c" />
+    <ClCompile Include="..\frozen_modules\M_urllib__request.c" />
+    <ClCompile Include="..\frozen_modules\M_urllib__response.c" />
+    <ClCompile Include="..\frozen_modules\M_warnings.c" />
+    <ClCompile Include="..\frozen_modules\M_weakref.c" />
+    <ClCompile Include="..\frozen_modules\M_webbrowser.c" />
+    <ClCompile Include="..\frozen_modules\M_xml.c" />
+    <ClCompile Include="..\frozen_modules\M_xmlrpc.c" />
+    <ClCompile Include="..\frozen_modules\M_xmlrpc__client.c" />
+    <ClCompile Include="..\frozen_modules\M_xml__parsers.c" />
+    <ClCompile Include="..\frozen_modules\M_xml__parsers__expat.c" />
+    <ClCompile Include="..\frozen_modules\M_zipfile.c" />
+    <ClCompile Include="..\frozen_modules\M_zipfile___path.c" />
+    <ClCompile Include="..\frozen_modules\M_zipfile___path__glob.c" />
+    <ClCompile Include="..\frozen_modules\M_zipimport.c" />
+    <ClCompile Include="..\frozen_modules\M__aix_support.c" />
+    <ClCompile Include="..\frozen_modules\M__collections_abc.c" />
+    <ClCompile Include="..\frozen_modules\M__colorize.c" />
+    <ClCompile Include="..\frozen_modules\M__compat_pickle.c" />
+    <ClCompile Include="..\frozen_modules\M__compression.c" />
+    <ClCompile Include="..\frozen_modules\M__ios_support.c" />
+    <ClCompile Include="..\frozen_modules\M__opcode_metadata.c" />
+    <ClCompile Include="..\frozen_modules\M__osx_support.c" />
+    <ClCompile Include="..\frozen_modules\M__pydatetime.c" />
+    <ClCompile Include="..\frozen_modules\M__pydecimal.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__commands.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__completing_reader.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__console.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__curses.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__fancy_termios.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__historical_reader.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__input.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__keymap.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__main.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__pager.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__reader.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__readline.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__simple_interact.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__trace.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__types.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__unix_console.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__unix_eventqueue.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__utils.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl__windows_console.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl___minimal_curses.c" />
+    <ClCompile Include="..\frozen_modules\M__pyrepl___threading_handler.c" />
+    <ClCompile Include="..\frozen_modules\M__py_abc.c" />
+    <ClCompile Include="..\frozen_modules\M__sitebuiltins.c" />
+    <ClCompile Include="..\frozen_modules\M__strptime.c" />
+    <ClCompile Include="..\frozen_modules\M__threading_local.c" />
+    <ClCompile Include="..\frozen_modules\M__weakrefset.c" />
+    <ClCompile Include="..\frozen_modules\M___future__.c" />
+    <ClCompile Include="..\frozen_modules\M___main__.c" />
+    <ClCompile Include="..\Modules\encodings\aliases.c" />
+    <ClCompile Include="..\Modules\encodings\ascii.c" />
+    <ClCompile Include="..\Modules\encodings\base64_codec.c" />
+    <ClCompile Include="..\Modules\encodings\big5.c" />
+    <ClCompile Include="..\Modules\encodings\big5hkscs.c" />
+    <ClCompile Include="..\Modules\encodings\bz2_codec.c" />
+    <ClCompile Include="..\Modules\encodings\charmap.c" />
+    <ClCompile Include="..\Modules\encodings\cp037.c" />
+    <ClCompile Include="..\Modules\encodings\cp1006.c" />
+    <ClCompile Include="..\Modules\encodings\cp1026.c" />
+    <ClCompile Include="..\Modules\encodings\cp1125.c" />
+    <ClCompile Include="..\Modules\encodings\cp1140.c" />
+    <ClCompile Include="..\Modules\encodings\cp1250.c" />
+    <ClCompile Include="..\Modules\encodings\cp1251.c" />
+    <ClCompile Include="..\Modules\encodings\cp1252.c" />
+    <ClCompile Include="..\Modules\encodings\cp1253.c" />
+    <ClCompile Include="..\Modules\encodings\cp1254.c" />
+    <ClCompile Include="..\Modules\encodings\cp1255.c" />
+    <ClCompile Include="..\Modules\encodings\cp1256.c" />
+    <ClCompile Include="..\Modules\encodings\cp1257.c" />
+    <ClCompile Include="..\Modules\encodings\cp1258.c" />
+    <ClCompile Include="..\Modules\encodings\cp273.c" />
+    <ClCompile Include="..\Modules\encodings\cp424.c" />
+    <ClCompile Include="..\Modules\encodings\cp437.c" />
+    <ClCompile Include="..\Modules\encodings\cp500.c" />
+    <ClCompile Include="..\Modules\encodings\cp720.c" />
+    <ClCompile Include="..\Modules\encodings\cp737.c" />
+    <ClCompile Include="..\Modules\encodings\cp775.c" />
+    <ClCompile Include="..\Modules\encodings\cp850.c" />
+    <ClCompile Include="..\Modules\encodings\cp852.c" />
+    <ClCompile Include="..\Modules\encodings\cp855.c" />
+    <ClCompile Include="..\Modules\encodings\cp856.c" />
+    <ClCompile Include="..\Modules\encodings\cp857.c" />
+    <ClCompile Include="..\Modules\encodings\cp858.c" />
+    <ClCompile Include="..\Modules\encodings\cp860.c" />
+    <ClCompile Include="..\Modules\encodings\cp861.c" />
+    <ClCompile Include="..\Modules\encodings\cp862.c" />
+    <ClCompile Include="..\Modules\encodings\cp863.c" />
+    <ClCompile Include="..\Modules\encodings\cp864.c" />
+    <ClCompile Include="..\Modules\encodings\cp865.c" />
+    <ClCompile Include="..\Modules\encodings\cp866.c" />
+    <ClCompile Include="..\Modules\encodings\cp869.c" />
+    <ClCompile Include="..\Modules\encodings\cp874.c" />
+    <ClCompile Include="..\Modules\encodings\cp875.c" />
+    <ClCompile Include="..\Modules\encodings\cp932.c" />
+    <ClCompile Include="..\Modules\encodings\cp949.c" />
+    <ClCompile Include="..\Modules\encodings\cp950.c" />
+    <ClCompile Include="..\Modules\encodings\euc_jisx0213.c" />
+    <ClCompile Include="..\Modules\encodings\euc_jis_2004.c" />
+    <ClCompile Include="..\Modules\encodings\euc_jp.c" />
+    <ClCompile Include="..\Modules\encodings\euc_kr.c" />
+    <ClCompile Include="..\Modules\encodings\gb18030.c" />
+    <ClCompile Include="..\Modules\encodings\gb2312.c" />
+    <ClCompile Include="..\Modules\encodings\gbk.c" />
+    <ClCompile Include="..\Modules\encodings\hex_codec.c" />
+    <ClCompile Include="..\Modules\encodings\hp_roman8.c" />
+    <ClCompile Include="..\Modules\encodings\hz.c" />
+    <ClCompile Include="..\Modules\encodings\idna.c" />
+    <ClCompile Include="..\Modules\encodings\iso2022_jp.c" />
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_1.c" />
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_2.c" />
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_2004.c" />
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_3.c" />
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_ext.c" />
+    <ClCompile Include="..\Modules\encodings\iso2022_kr.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_1.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_10.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_11.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_13.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_14.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_15.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_16.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_2.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_3.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_4.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_5.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_6.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_7.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_8.c" />
+    <ClCompile Include="..\Modules\encodings\iso8859_9.c" />
+    <ClCompile Include="..\Modules\encodings\johab.c" />
+    <ClCompile Include="..\Modules\encodings\koi8_r.c" />
+    <ClCompile Include="..\Modules\encodings\koi8_t.c" />
+    <ClCompile Include="..\Modules\encodings\koi8_u.c" />
+    <ClCompile Include="..\Modules\encodings\kz1048.c" />
+    <ClCompile Include="..\Modules\encodings\latin_1.c" />
+    <ClCompile Include="..\Modules\encodings\mac_arabic.c" />
+    <ClCompile Include="..\Modules\encodings\mac_croatian.c" />
+    <ClCompile Include="..\Modules\encodings\mac_cyrillic.c" />
+    <ClCompile Include="..\Modules\encodings\mac_farsi.c" />
+    <ClCompile Include="..\Modules\encodings\mac_greek.c" />
+    <ClCompile Include="..\Modules\encodings\mac_iceland.c" />
+    <ClCompile Include="..\Modules\encodings\mac_latin2.c" />
+    <ClCompile Include="..\Modules\encodings\mac_roman.c" />
+    <ClCompile Include="..\Modules\encodings\mac_romanian.c" />
+    <ClCompile Include="..\Modules\encodings\mac_turkish.c" />
+    <ClCompile Include="..\Modules\encodings\mbcs.c" />
+    <ClCompile Include="..\Modules\encodings\oem.c" />
+    <ClCompile Include="..\Modules\encodings\palmos.c" />
+    <ClCompile Include="..\Modules\encodings\ptcp154.c" />
+    <ClCompile Include="..\Modules\encodings\punycode.c" />
+    <ClCompile Include="..\Modules\encodings\quopri_codec.c" />
+    <ClCompile Include="..\Modules\encodings\raw_unicode_escape.c" />
+    <ClCompile Include="..\Modules\encodings\rot_13.c" />
+    <ClCompile Include="..\Modules\encodings\shift_jis.c" />
+    <ClCompile Include="..\Modules\encodings\shift_jisx0213.c" />
+    <ClCompile Include="..\Modules\encodings\shift_jis_2004.c" />
+    <ClCompile Include="..\Modules\encodings\tis_620.c" />
+    <ClCompile Include="..\Modules\encodings\undefined.c" />
+    <ClCompile Include="..\Modules\encodings\unicode_escape.c" />
+    <ClCompile Include="..\Modules\encodings\utf_16.c" />
+    <ClCompile Include="..\Modules\encodings\utf_16_be.c" />
+    <ClCompile Include="..\Modules\encodings\utf_16_le.c" />
+    <ClCompile Include="..\Modules\encodings\utf_32.c" />
+    <ClCompile Include="..\Modules\encodings\utf_32_be.c" />
+    <ClCompile Include="..\Modules\encodings\utf_32_le.c" />
+    <ClCompile Include="..\Modules\encodings\utf_7.c" />
+    <ClCompile Include="..\Modules\encodings\utf_8.c" />
+    <ClCompile Include="..\Modules\encodings\utf_8_sig.c" />
+    <ClCompile Include="..\Modules\encodings\uu_codec.c" />
+    <ClCompile Include="..\Modules\encodings\zlib_codec.c" />
+    <ClCompile Include="..\Modules\encodings\__init__.c" />
     <ClCompile Include="..\Modules\getpath.c">
       <AdditionalIncludeDirectories>$(GeneratedFrozenModulesDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>
@@ -411,6 +857,7 @@
     <ClInclude Include="$(zlibDir)\zutil.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Modules\main1.c" />
     <ClCompile Include="..\Modules\_abc.c" />
     <ClCompile Include="..\Modules\_bisectmodule.c" />
     <ClCompile Include="..\Modules\_blake2\blake2module.c" />
@@ -663,12 +1110,16 @@
   <ItemGroup>
     <ResourceCompile Include="..\PC\python_nt.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Modules\extras\codecs.py" />
+    <None Include="..\frozen_modules\Makefile" />
+    <None Include="..\Modules\encodings\name.py" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="regen.targets" />
   </ImportGroup>
   <Target Name="_TriggerRegen" BeforeTargets="PrepareForBuild" DependsOnTargets="Regen" />
-
   <Target Name="_UpdatePyconfig" BeforeTargets="PrepareForBuild">
     <MakeDir Directories="$(IntDir)" Condition="!Exists($(IntDir))" />
     <ItemGroup>
@@ -685,10 +1136,7 @@
       <PyConfigHText>$(PyConfigHText.Replace('/* #define Py_GIL_DISABLED 1 */', '#define Py_GIL_DISABLED 1'))</PyConfigHText>
     </PropertyGroup>
     <Message Text="Updating pyconfig.h" Condition="$(PyConfigHText.TrimEnd()) != $(OldPyConfigH.TrimEnd())" />
-    <WriteLinesToFile File="$(IntDir)pyconfig.h"
-                      Lines="$(PyConfigHText)"
-                      Overwrite="true"
-                      Condition="$(PyConfigHText.TrimEnd()) != $(OldPyConfigH.TrimEnd())" />
+    <WriteLinesToFile File="$(IntDir)pyconfig.h" Lines="$(PyConfigHText)" Overwrite="true" Condition="$(PyConfigHText.TrimEnd()) != $(OldPyConfigH.TrimEnd())" />
   </Target>
   <Target Name="_CopyPyconfig" Inputs="$(IntDir)pyconfig.h" Outputs="$(OutDir)pyconfig.h" AfterTargets="Build" DependsOnTargets="_UpdatePyconfig">
     <Copy SourceFiles="$(IntDir)pyconfig.h" DestinationFolder="$(OutDir)" />
@@ -696,7 +1144,6 @@
   <Target Name="_CleanPyconfig" AfterTargets="Clean">
     <Delete Files="$(IntDir)pyconfig.h;$(OutDir)pyconfig.h" />
   </Target>
-
   <Target Name="_GetBuildInfo" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <GIT Condition="$(GIT) == ''">git</GIT>
@@ -726,7 +1173,6 @@
   <Target Name="_WarnAboutZlib" BeforeTargets="PrepareForBuild" Condition="!$(IncludeExternals)">
     <Warning Text="Not including zlib is not a supported configuration." />
   </Target>
-
   <Target Name="_CopyVCRuntime" AfterTargets="Build" Inputs="@(VCRuntimeDLL)" Outputs="$(OutDir)%(Filename)%(Extension)" DependsOnTargets="FindVCRuntime">
     <!-- bpo-38597: When we switch to another VCRuntime DLL, include vcruntime140.dll as well -->
     <Warning Text="A copy of vcruntime140.dll is also required" Condition="!$(VCToolsRedistVersion.StartsWith(`14.`))" />
@@ -735,7 +1181,6 @@
   <Target Name="_CleanVCRuntime" AfterTargets="Clean">
     <Delete Files="@(VCRuntimeDLL->'$(OutDir)%(Filename)%(Extension)')" />
   </Target>
-
   <Target Name="_DeletePyBuildDirTxt" BeforeTargets="PrepareForBuild">
     <Delete Files="$(OutDir)pybuilddir.txt" />
   </Target>

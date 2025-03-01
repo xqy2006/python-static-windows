@@ -1,0 +1,5 @@
+﻿  _elementtree.c
+  xmlparse.c
+  xmlrole.c
+  xmltok.c
+  _elementtree.vcxproj -> D:\Python-3.13.0\PCbuild\amd64\_elementtree.pyd

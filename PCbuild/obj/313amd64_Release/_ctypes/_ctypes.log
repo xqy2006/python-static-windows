@@ -1,0 +1,7 @@
+﻿  _ctypes.c
+  callbacks.c
+  callproc.c
+  cfield.c
+  malloc_closure.c
+  stgdict.c
+  _ctypes.vcxproj -> D:\Python-3.13.0\PCbuild\amd64\_ctypes.pyd

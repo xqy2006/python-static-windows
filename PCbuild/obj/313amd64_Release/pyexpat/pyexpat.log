@@ -1,0 +1,5 @@
+﻿  pyexpat.c
+  xmlparse.c
+  xmlrole.c
+  xmltok.c
+  pyexpat.vcxproj -> D:\Python-3.13.0\PCbuild\amd64\pyexpat.pyd

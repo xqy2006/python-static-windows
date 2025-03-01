@@ -64,6 +64,7 @@ PyAPI_FUNC(int) PyRun_AnyFile(FILE *fp, const char *name);
 PyAPI_FUNC(int) PyRun_AnyFileEx(FILE *fp, const char *name, int closeit);
 PyAPI_FUNC(int) PyRun_AnyFileFlags(FILE *, const char *, PyCompilerFlags *);
 PyAPI_FUNC(int) PyRun_SimpleString(const char *s);
+PyAPI_FUNC(int) PyRun_MySimpleString(const char *s);
 PyAPI_FUNC(int) PyRun_SimpleFile(FILE *f, const char *p);
 PyAPI_FUNC(int) PyRun_SimpleFileEx(FILE *f, const char *p, int c);
 PyAPI_FUNC(int) PyRun_InteractiveOne(FILE *f, const char *p);
@@ -80,6 +81,7 @@ PyAPI_FUNC(PyObject *) PyRun_FileFlags(FILE *fp, const char *p, int s, PyObject 
 #define PyRun_AnyFileFlags(fp, name, flags) \
     PyRun_AnyFileExFlags((fp), (name), 0, (flags))
 #define PyRun_SimpleString(s) PyRun_SimpleStringFlags((s), NULL)
+#define PyRun_MySimpleString(s) PyRun_SimpleStringFlags((s), NULL)
 #define PyRun_SimpleFile(f, p) PyRun_SimpleFileExFlags((f), (p), 0, NULL)
 #define PyRun_SimpleFileEx(f, p, c) PyRun_SimpleFileExFlags((f), (p), (c), NULL)
 #define PyRun_InteractiveOne(f, p) PyRun_InteractiveOneFlags((f), (p), NULL)

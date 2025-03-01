@@ -166,6 +166,7 @@ def iter_global_strings():
             # The file must have been a temporary file.
             continue
         with infile:
+            print(infile)
             for lno, line in enumerate(infile, 1):
                 for m in id_regex.finditer(line):
                     identifier, = m.groups()

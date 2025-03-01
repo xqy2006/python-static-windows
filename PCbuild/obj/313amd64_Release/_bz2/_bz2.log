@@ -1,0 +1,9 @@
+﻿  _bz2module.c
+  blocksort.c
+  bzlib.c
+  compress.c
+  crctable.c
+  decompress.c
+  huffman.c
+  randtable.c
+  _bz2.vcxproj -> D:\Python-3.13.0\PCbuild\amd64\_bz2.pyd

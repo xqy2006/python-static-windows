@@ -438,6 +438,7 @@ is_tstate_valid(PyThreadState *tstate)
 static Py_ssize_t
 setup_profile(PyThreadState *tstate, Py_tracefunc func, PyObject *arg, PyObject **old_profileobj)
 {
+    return -1;
     *old_profileobj = NULL;
     /* Setup PEP 669 monitoring callbacks and events. */
     if (!tstate->interp->sys_profile_initialized) {
@@ -491,6 +492,7 @@ setup_profile(PyThreadState *tstate, Py_tracefunc func, PyObject *arg, PyObject 
 int
 _PyEval_SetProfile(PyThreadState *tstate, Py_tracefunc func, PyObject *arg)
 {
+    return -1;
     assert(is_tstate_valid(tstate));
     /* The caller must hold the GIL */
     assert(PyGILState_Check());
@@ -523,6 +525,7 @@ _PyEval_SetProfile(PyThreadState *tstate, Py_tracefunc func, PyObject *arg)
 static Py_ssize_t
 setup_tracing(PyThreadState *tstate, Py_tracefunc func, PyObject *arg, PyObject **old_traceobj)
 {
+    return -1;
     *old_traceobj = NULL;
     /* Setup PEP 669 monitoring callbacks and events. */
     if (!tstate->interp->sys_trace_initialized) {
@@ -586,6 +589,7 @@ setup_tracing(PyThreadState *tstate, Py_tracefunc func, PyObject *arg, PyObject 
 int
 _PyEval_SetTrace(PyThreadState *tstate, Py_tracefunc func, PyObject *arg)
 {
+    return -1;
     assert(is_tstate_valid(tstate));
     /* The caller must hold the GIL */
     assert(PyGILState_Check());

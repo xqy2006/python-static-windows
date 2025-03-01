@@ -1,3 +1,5 @@
+__package__ = 'encodings'
+__path__ = [__name__]
 """ Standard "encodings" Package
 
     Standard Python encoding modules are stored in this package

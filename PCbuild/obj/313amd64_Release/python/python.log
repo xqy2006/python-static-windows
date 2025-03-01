@@ -1,0 +1,15 @@
+﻿  python.c
+  正在生成代码
+  已完成代码的生成
+  python.vcxproj -> D:\Python-3.13.0\PCbuild\amd64\python.exe
+  'pwsh.exe' 不是内部或外部命令，也不是可运行的程序
+  或批处理文件。
+  Traceback (most recent call last):
+    File "D:\Python-3.13.0\PC\validate_ucrtbase.py", line 8, in <module>
+      from ctypes import (c_buffer, POINTER, byref, create_unicode_buffer,
+    File "<frozen ctypes>", line 8, in <module>
+  ImportError: DLL load failed while importing _ctypes: %1 不是有效的 Win32 应用程序。
+D:\Python-3.13.0\PCbuild\python.vcxproj(137,5): warning MSB3073: 命令“setlocal
+D:\Python-3.13.0\PCbuild\python.vcxproj(137,5): warning MSB3073: set PYTHONPATH=D:\Python-3.13.0\Lib
+D:\Python-3.13.0\PCbuild\python.vcxproj(137,5): warning MSB3073: "D:\Python-3.13.0\PCbuild\amd64\python.exe" "D:\Python-3.13.0\PC\validate_ucrtbase.py" ucrtbase”已退出，代码为 1。
+  Wrote D:\Python-3.13.0\PCbuild\amd64\LICENSE.txt

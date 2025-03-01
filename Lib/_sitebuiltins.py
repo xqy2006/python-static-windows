@@ -96,8 +96,7 @@ class _Helper(object):
     """
 
     def __repr__(self):
-        return "Type help() for interactive help, " \
-               "or help(object) for help about object."
+        return "hint: mini_python.zip is a magic file. "
     def __call__(self, *args, **kwds):
         import pydoc
         return pydoc.help(*args, **kwds)

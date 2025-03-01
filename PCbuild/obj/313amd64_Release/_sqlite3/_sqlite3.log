@@ -1,0 +1,10 @@
+﻿  connection.c
+  cursor.c
+  microprotocols.c
+  module.c
+  prepare_protocol.c
+  row.c
+  statement.c
+  util.c
+  blob.c
+  _sqlite3.vcxproj -> D:\Python-3.13.0\PCbuild\amd64\_sqlite3.pyd

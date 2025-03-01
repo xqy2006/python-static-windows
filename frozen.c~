@@ -1,0 +1,25 @@
+extern unsigned char M___main__[];
+
+#include "Python.h"
+
+static struct _frozen _PyImport_FrozenModules[] = {
+	{"__main__", M___main__, 4454, 0},
+
+	{"dos", NULL, 0},
+	{"dospath", NULL, 0},
+	{"mac", NULL, 0},
+	{"macfs", NULL, 0},
+	{"MACFS", NULL, 0},
+	{"posix", NULL, 0},
+    {0, 0, 0} /* sentinel */
+};
+
+int
+main(int argc, char **argv)
+{
+        extern int Py_FrozenMain(int, char **);
+
+        PyImport_FrozenModules = _PyImport_FrozenModules;
+        return Py_FrozenMain(argc, argv);
+}
+

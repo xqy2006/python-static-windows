@@ -1,0 +1,6 @@
+﻿  _testinternalcapi.c
+  pytime.c
+  test_critical_sections.c
+  test_lock.c
+  set.c
+  _testinternalcapi.vcxproj -> D:\Python-3.13.0\PCbuild\amd64\_testinternalcapi.pyd

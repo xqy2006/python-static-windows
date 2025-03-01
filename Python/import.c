@@ -3979,6 +3979,7 @@ _PyImport_Init(void)
         return _PyStatus_ERR("global import state already initialized");
     }
 
+
     PyStatus status = _PyStatus_OK();
 
     /* Force default raw memory allocator to get a known allocator to be able

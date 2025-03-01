@@ -1,3 +1,5 @@
+__package__ = 'runpy'
+__path__ = [__name__]
 """runpy.py - locating and running Python code using the module namespace
 
 Provides support for locating and running Python scripts using the Python

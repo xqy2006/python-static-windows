@@ -40,8 +40,8 @@ def updating_file_with_tmpfile(filename, tmpfile=None):
     else:
         raise ValueError(f"unknown end of line: {filename}: {line!a}")
 
-    with open(tmpfile, 'w', newline=newline) as outfile:
-        with open(filename) as infile:
+    with open(tmpfile, 'w', newline=newline, encoding='utf-8') as outfile:
+        with open(filename, encoding='utf-8') as infile:
             yield infile, outfile
     update_file_with_tmpfile(filename, tmpfile)
 

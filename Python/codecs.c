@@ -119,7 +119,8 @@ PyObject *normalizestring(const char *string)
    facilities.
 
    The encoding string is looked up converted to all lower-case
-   characters. This makes encodings looked up through this mechanism
+   characters. This makes
+   looked up through this mechanism
    effectively case-insensitive.
 
    If no codec is found, a LookupError is set and NULL returned.

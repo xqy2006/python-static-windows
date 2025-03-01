@@ -109,7 +109,7 @@ TESTPATH=
 COREPYTHONPATH=$(DESTPATH)$(SITEPATH)$(TESTPATH)
 PYTHONPATH=$(COREPYTHONPATH)
 
-
+frozenmodule frozenmodule.c
 # ---
 # Built-in modules required to get a functioning interpreter are listed in
 # Modules/Setup.bootstrap.
@@ -127,95 +127,95 @@ PYTHONPATH=$(COREPYTHONPATH)
 # detail; also note that *static* or *disabled* cancels this effect):
 
 #*shared*
-
+*static*
 # Modules that should always be present (POSIX and Windows):
 
-#_asyncio _asynciomodule.c
-#_bisect _bisectmodule.c
-#_contextvars _contextvarsmodule.c
-#_csv _csv.c
-#_datetime _datetimemodule.c
-#_decimal _decimal/_decimal.c
-#_heapq _heapqmodule.c
-#_interpchannels _interpchannelsmodule.c
-#_interpqueues _interpqueuesmodule.c
-#_interpreters _interpretersmodule.c
-#_json _json.c
-#_lsprof _lsprof.c rotatingtree.c
-#_multiprocessing -I$(srcdir)/Modules/_multiprocessing _multiprocessing/multiprocessing.c _multiprocessing/semaphore.c
-#_opcode _opcode.c
-#_pickle _pickle.c
-#_queue _queuemodule.c
-#_random _randommodule.c
-#_socket socketmodule.c
-#_statistics _statisticsmodule.c
-#_struct _struct.c
-#_typing _typingmodule.c
-#_zoneinfo _zoneinfo.c
-#array arraymodule.c
-#binascii binascii.c
-#cmath cmathmodule.c
-#math mathmodule.c
-#mmap mmapmodule.c
-#select selectmodule.c
-#_sysconfig _sysconfig.c
+_asyncio _asynciomodule.c
+_bisect _bisectmodule.c
+_contextvars _contextvarsmodule.c
+_csv _csv.c
+_datetime _datetimemodule.c
+_decimal _decimal/_decimal.c
+_heapq _heapqmodule.c
+_interpchannels _interpchannelsmodule.c
+_interpqueues _interpqueuesmodule.c
+_interpreters _interpretersmodule.c
+_json _json.c
+_lsprof _lsprof.c rotatingtree.c
+_multiprocessing -I$(srcdir)/Modules/_multiprocessing _multiprocessing/multiprocessing.c _multiprocessing/semaphore.c
+_opcode _opcode.c
+_pickle _pickle.c
+_queue _queuemodule.c
+_random _randommodule.c
+_socket socketmodule.c
+_statistics _statisticsmodule.c
+_struct _struct.c
+_typing _typingmodule.c
+_zoneinfo _zoneinfo.c
+array arraymodule.c
+binascii binascii.c
+cmath cmathmodule.c
+math mathmodule.c
+mmap mmapmodule.c
+select selectmodule.c
+_sysconfig _sysconfig.c
 
 # XML
-#_elementtree _elementtree.c
-#pyexpat pyexpat.c
+_elementtree _elementtree.c
+pyexpat pyexpat.c
 
 # hashing builtins
-#_blake2 _blake2/blake2module.c _blake2/blake2b_impl.c _blake2/blake2s_impl.c
-#_md5 md5module.c -I$(srcdir)/Modules/_hacl/include _hacl/Hacl_Hash_MD5.c -D_BSD_SOURCE -D_DEFAULT_SOURCE
-#_sha1 sha1module.c -I$(srcdir)/Modules/_hacl/include _hacl/Hacl_Hash_SHA1.c -D_BSD_SOURCE -D_DEFAULT_SOURCE
-#_sha2 sha2module.c -I$(srcdir)/Modules/_hacl/include Modules/_hacl/libHacl_Hash_SHA2.a
-#_sha3 sha3module.c -I$(srcdir)/Modules/_hacl/include _hacl/Hacl_Hash_SHA3.c -D_BSD_SOURCE -D_DEFAULT_SOURCE
+_blake2 _blake2/blake2module.c _blake2/blake2b_impl.c _blake2/blake2s_impl.c
+_md5 md5module.c -I$(srcdir)/Modules/_hacl/include _hacl/Hacl_Hash_MD5.c -D_BSD_SOURCE -D_DEFAULT_SOURCE
+_sha1 sha1module.c -I$(srcdir)/Modules/_hacl/include _hacl/Hacl_Hash_SHA1.c -D_BSD_SOURCE -D_DEFAULT_SOURCE
+_sha2 sha2module.c -I$(srcdir)/Modules/_hacl/include Modules/_hacl/libHacl_Hash_SHA2.a
+_sha3 sha3module.c -I$(srcdir)/Modules/_hacl/include _hacl/Hacl_Hash_SHA3.c -D_BSD_SOURCE -D_DEFAULT_SOURCE
 
 # text encodings and unicode
-#_codecs_cn cjkcodecs/_codecs_cn.c
-#_codecs_hk cjkcodecs/_codecs_hk.c
-#_codecs_iso2022 cjkcodecs/_codecs_iso2022.c
-#_codecs_jp cjkcodecs/_codecs_jp.c
-#_codecs_kr cjkcodecs/_codecs_kr.c
-#_codecs_tw cjkcodecs/_codecs_tw.c
-#_multibytecodec cjkcodecs/multibytecodec.c
-#unicodedata unicodedata.c
+_codecs_cn cjkcodecs/_codecs_cn.c
+_codecs_hk cjkcodecs/_codecs_hk.c
+_codecs_iso2022 cjkcodecs/_codecs_iso2022.c
+_codecs_jp cjkcodecs/_codecs_jp.c
+_codecs_kr cjkcodecs/_codecs_kr.c
+_codecs_tw cjkcodecs/_codecs_tw.c
+_multibytecodec cjkcodecs/multibytecodec.c
+unicodedata unicodedata.c
 
 # Modules with some UNIX dependencies
 
-#_posixsubprocess _posixsubprocess.c
-#_posixshmem -I$(srcdir)/Modules/_multiprocessing _multiprocessing/posixshmem.c -lrt
-#fcntl fcntlmodule.c
-#grp grpmodule.c
-#resource resource.c
-#syslog syslogmodule.c
-#termios termios.c
+_posixsubprocess _posixsubprocess.c
+_posixshmem -I$(srcdir)/Modules/_multiprocessing _multiprocessing/posixshmem.c -lrt
+fcntl fcntlmodule.c
+grp grpmodule.c
+resource resource.c
+syslog syslogmodule.c
+termios termios.c
 
 # Modules that require external libraries.
 
-#_bz2 _bz2module.c -lbz2
-#_ctypes _ctypes/_ctypes.c _ctypes/callbacks.c _ctypes/callproc.c _ctypes/stgdict.c _ctypes/cfield.c -ldl -lffi -DHAVE_FFI_PREP_CIF_VAR -DHAVE_FFI_PREP_CLOSURE_LOC -DHAVE_FFI_CLOSURE_ALLOC
+_bz2 _bz2module.c -lbz2
+_ctypes _ctypes/_ctypes.c _ctypes/callbacks.c _ctypes/callproc.c _ctypes/stgdict.c _ctypes/cfield.c -ldl -lffi -DHAVE_FFI_PREP_CIF_VAR -DHAVE_FFI_PREP_CLOSURE_LOC -DHAVE_FFI_CLOSURE_ALLOC
 # The _dbm module supports NDBM, GDBM with compat module, and Berkeley DB.
-#_dbm _dbmmodule.c -lgdbm_compat -DUSE_GDBM_COMPAT
-#_gdbm _gdbmmodule.c -lgdbm
-#_lzma _lzmamodule.c -llzma
-#_uuid _uuidmodule.c -luuid
-#zlib  zlibmodule.c -lz
+_dbm _dbmmodule.c -lgdbm_compat -DUSE_GDBM_COMPAT
+_gdbm _gdbmmodule.c -lgdbm
+_lzma _lzmamodule.c -llzma
+_uuid _uuidmodule.c -luuid
+zlib  zlibmodule.c -lz
 
 # The readline module also supports libeditline (-leditline).
 # Some systems may require -ltermcap or -ltermlib.
-#readline readline.c -lreadline -ltermcap
+readline readline.c -lreadline -ltermcap
 
 # OpenSSL bindings
-#_ssl _ssl.c $(OPENSSL_INCLUDES) $(OPENSSL_LDFLAGS) $(OPENSSL_LIBS)
-#_hashlib _hashopenssl.c $(OPENSSL_INCLUDES) $(OPENSSL_LDFLAGS) -lcrypto
+_ssl _ssl.c $(OPENSSL_INCLUDES) $(OPENSSL_LDFLAGS) $(OPENSSL_LIBS)
+_hashlib _hashopenssl.c $(OPENSSL_INCLUDES) $(OPENSSL_LDFLAGS) -lcrypto
 
 # To statically link OpenSSL:
-# _ssl _ssl.c $(OPENSSL_INCLUDES) $(OPENSSL_LDFLAGS) \
-#     -l:libssl.a -Wl,--exclude-libs,libssl.a \
-#     -l:libcrypto.a -Wl,--exclude-libs,libcrypto.a
-# _hashlib _hashopenssl.c $(OPENSSL_INCLUDES) $(OPENSSL_LDFLAGS) \
-#     -l:libcrypto.a -Wl,--exclude-libs,libcrypto.a
+ _ssl _ssl.c $(OPENSSL_INCLUDES) $(OPENSSL_LDFLAGS) \
+     -l:libssl.a -Wl,--exclude-libs,libssl.a \
+     -l:libcrypto.a -Wl,--exclude-libs,libcrypto.a
+ _hashlib _hashopenssl.c $(OPENSSL_INCLUDES) $(OPENSSL_LDFLAGS) \
+     -l:libcrypto.a -Wl,--exclude-libs,libcrypto.a
 
 # The _tkinter module.
 #
@@ -259,8 +259,8 @@ PYTHONPATH=$(COREPYTHONPATH)
 #	-lX11
 
 # Some system have -lcurses
-#_curses -lncurses -lncursesw -ltermcap _cursesmodule.c
-#_curses_panel -lpanel -lncurses _curses_panel.c
+_curses -lncurses -lncursesw -ltermcap _cursesmodule.c
+_curses_panel -lpanel -lncurses _curses_panel.c
 
 # macOS specific module, needs SystemConfiguration and CoreFoundation framework
 # _scproxy _scproxy.c
@@ -294,5 +294,9 @@ PYTHONPATH=$(COREPYTHONPATH)
 #
 #*disabled*
 #
-# _sqlite3 _tkinter _curses pyexpat
-# _codecs_jp _codecs_kr _codecs_tw unicodedata
+ _sqlite3 _tkinter _curses pyexpat
+ _codecs_jp _codecs_kr _codecs_tw unicodedata
+
+
+encodings encodings/aliases.c encodings/ascii.c encodings/base64_codec.c encodings/big5.c encodings/big5hkscs.c encodings/bz2_codec.c encodings/charmap.c encodings/cp037.c encodings/cp1006.c encodings/cp1026.c encodings/cp1125.c encodings/cp1140.c encodings/cp1250.c encodings/cp1251.c encodings/cp1252.c encodings/cp1253.c encodings/cp1254.c encodings/cp1255.c encodings/cp1256.c encodings/cp1257.c encodings/cp1258.c encodings/cp273.c encodings/cp424.c encodings/cp437.c encodings/cp500.c encodings/cp720.c encodings/cp737.c encodings/cp775.c encodings/cp850.c encodings/cp852.c encodings/cp855.c encodings/cp856.c encodings/cp857.c encodings/cp858.c encodings/cp860.c encodings/cp861.c encodings/cp862.c encodings/cp863.c encodings/cp864.c encodings/cp865.c encodings/cp866.c encodings/cp869.c encodings/cp874.c encodings/cp875.c encodings/cp932.c encodings/cp949.c encodings/cp950.c encodings/euc_jisx0213.c encodings/euc_jis_2004.c encodings/euc_jp.c encodings/euc_kr.c encodings/gb18030.c encodings/gb2312.c encodings/gbk.c encodings/hex_codec.c encodings/hp_roman8.c encodings/hz.c encodings/idna.c encodings/iso2022_jp.c encodings/iso2022_jp_1.c encodings/iso2022_jp_2.c encodings/iso2022_jp_2004.c encodings/iso2022_jp_3.c encodings/iso2022_jp_ext.c encodings/iso2022_kr.c encodings/iso8859_1.c encodings/iso8859_10.c encodings/iso8859_11.c encodings/iso8859_13.c encodings/iso8859_14.c encodings/iso8859_15.c encodings/iso8859_16.c encodings/iso8859_2.c encodings/iso8859_3.c encodings/iso8859_4.c encodings/iso8859_5.c encodings/iso8859_6.c encodings/iso8859_7.c encodings/iso8859_8.c encodings/iso8859_9.c encodings/johab.c encodings/koi8_r.c encodings/koi8_t.c encodings/koi8_u.c encodings/kz1048.c encodings/latin_1.c encodings/mac_arabic.c encodings/mac_croatian.c encodings/mac_cyrillic.c encodings/mac_farsi.c encodings/mac_greek.c encodings/mac_iceland.c encodings/mac_latin2.c encodings/mac_roman.c encodings/mac_romanian.c encodings/mac_turkish.c encodings/mbcs.c encodings/oem.c encodings/palmos.c encodings/ptcp154.c encodings/punycode.c encodings/quopri_codec.c encodings/raw_unicode_escape.c encodings/rot_13.c encodings/shift_jis.c encodings/shift_jisx0213.c encodings/shift_jis_2004.c encodings/tis_620.c encodings/undefined.c encodings/unicode_escape.c encodings/utf_16.c encodings/utf_16_be.c encodings/utf_16_le.c encodings/utf_32.c encodings/utf_32_be.c encodings/utf_32_le.c encodings/utf_7.c encodings/utf_8.c encodings/utf_8_sig.c encodings/uu_codec.c encodings/zlib_codec.c encodings/__init__.c
+main main1.c

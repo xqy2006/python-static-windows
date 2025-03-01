@@ -43,6 +43,15 @@
     <Filter Include="Include\cpython">
       <UniqueIdentifier>{875bf4f2-ac42-46bd-b703-8371a824ec32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Modules\tqdm">
+      <UniqueIdentifier>{e089e79e-6ce4-41f4-8e26-49dbf5be4cb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\encodings">
+      <UniqueIdentifier>{3610cf8a-fa2a-4a73-9c55-e3f4d8313029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="frozen_modules">
+      <UniqueIdentifier>{50077cef-ec76-4921-9998-80a314fcef98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Include\abstract.h">
@@ -58,9 +67,6 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Include\ceval.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\code.h">
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Include\codecs.h">
@@ -321,9 +327,6 @@
     <ClInclude Include="..\PC\errmap.h">
       <Filter>PC</Filter>
     </ClInclude>
-    <ClInclude Include="..\PC\pyconfig.h">
-      <Filter>PC</Filter>
-    </ClInclude>
     <ClInclude Include="..\Python\stdlib_module_names.h">
       <Filter>Python</Filter>
     </ClInclude>
@@ -450,13 +453,7 @@
     <ClInclude Include="..\Include\cpython\pyatomic.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="..\Include\cpython\pyatomic_gcc.h">
-      <Filter>Include</Filter>
-    </ClInclude>
     <ClInclude Include="..\Include\cpython\pyatomic_msc.h">
-      <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Include\cpython\pyatomic_std.h">
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\Include\cpython\pyctype.h">
@@ -888,6 +885,10 @@
     <ClInclude Include="..\Include\internal\pycore_structseq.h">
       <Filter>Include\internal</Filter>
     </ClInclude>
+    <ClInclude Include="..\Include\internal\pycore_backoff.h" />
+    <ClInclude Include="..\Include\internal\pycore_cfg.h" />
+    <ClInclude Include="..\Include\opcode.h" />
+    <ClInclude Include="..\PC\pyconfig.h.in" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Modules\_abc.c">
@@ -1100,9 +1101,6 @@
     <ClCompile Include="..\Objects\abstract.c">
       <Filter>Objects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Objects\accu.c">
-      <Filter>Objects</Filter>
-    </ClCompile>
     <ClCompile Include="..\Objects\boolobject.c">
       <Filter>Objects</Filter>
     </ClCompile>
@@ -1292,9 +1290,6 @@
     <ClCompile Include="..\Python\critical_section.c">
       <Filter>Python</Filter>
     </ClCompile>
-    <ClCompile Include="..\Python\crossinterp.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Python\dynamic_annotations.c">
       <Filter>Python</Filter>
     </ClCompile>
@@ -1364,23 +1359,8 @@
     <ClCompile Include="..\Python\interpconfig.c">
       <Filter>Python</Filter>
     </ClCompile>
-    <ClCompile Include="..\Python\intrinsics.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Python\instruction_sequence.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Python\instrumentation.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Python\jit.c">
       <Filter>Python</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Python\legacy_tracing.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Python\lock.c">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Python\marshal.c">
       <Filter>Python</Filter>
@@ -1604,10 +1584,1359 @@
     <ClCompile Include="..\Modules\getbuildinfo.c">
       <Filter>Modules</Filter>
     </ClCompile>
+    <ClCompile Include="..\Python\crossinterp.c" />
+    <ClCompile Include="..\Python\intrinsics.c" />
+    <ClCompile Include="..\Python\instruction_sequence.c" />
+    <ClCompile Include="..\Python\instrumentation.c" />
+    <ClCompile Include="..\Python\legacy_tracing.c" />
+    <ClCompile Include="..\Python\lock.c" />
+    <ClCompile Include="..\Modules\main1.c">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\codecs.c">
+      <Filter>Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm.c">
+      <Filter>Modules\tqdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm___dist_ver.c">
+      <Filter>Modules\tqdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm___monitor.c">
+      <Filter>Modules\tqdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm___tqdm_pandas.c">
+      <Filter>Modules\tqdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__cli.c">
+      <Filter>Modules\tqdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__gui.c">
+      <Filter>Modules\tqdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__std.c">
+      <Filter>Modules\tqdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__utils.c">
+      <Filter>Modules\tqdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Modules\extras\tqdm\tqdm__version.c">
+      <Filter>Modules\tqdm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\__init__.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\aliases.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\ascii.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\base64_codec.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\big5.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\big5hkscs.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\bz2_codec.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\charmap.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp037.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp273.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp424.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp437.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp500.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp720.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp737.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp775.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp850.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp852.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp855.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp856.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp857.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp858.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp860.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp861.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp862.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp863.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp864.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp865.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp866.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp869.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp874.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp875.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp932.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp949.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp950.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1006.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1026.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1125.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1140.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1250.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1251.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1252.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1253.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1254.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1255.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1256.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1257.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\cp1258.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\euc_jis_2004.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\euc_jisx0213.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\euc_jp.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\euc_kr.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\gb2312.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\gb18030.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\gbk.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\hex_codec.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\hp_roman8.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\hz.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\idna.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso2022_jp.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_1.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_2.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_3.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_2004.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso2022_jp_ext.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso2022_kr.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_1.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_2.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_3.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_4.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_5.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_6.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_7.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_8.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_9.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_10.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_11.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_13.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_14.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_15.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\iso8859_16.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\johab.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\koi8_r.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\koi8_t.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\koi8_u.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\kz1048.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\latin_1.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_arabic.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_croatian.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_cyrillic.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_farsi.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_greek.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_iceland.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_latin2.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_roman.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_romanian.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mac_turkish.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\mbcs.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\oem.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\palmos.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\ptcp154.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\punycode.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\quopri_codec.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\raw_unicode_escape.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\rot_13.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\shift_jis.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\shift_jis_2004.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\shift_jisx0213.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\tis_620.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\undefined.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\unicode_escape.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\utf_7.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\utf_8.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\utf_8_sig.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\utf_16.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\utf_16_be.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\utf_16_le.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\utf_32.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\utf_32_be.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\utf_32_le.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\uu_codec.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Modules\encodings\zlib_codec.c">
+      <Filter>Modules\encodings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\frozen.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\frozen_extensions.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M___future__.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M___main__.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__aix_support.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__collections_abc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__colorize.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__compat_pickle.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__compression.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__ios_support.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__opcode_metadata.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__osx_support.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__py_abc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pydatetime.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pydecimal.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl___minimal_curses.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl___threading_handler.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__commands.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__completing_reader.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__console.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__curses.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__fancy_termios.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__historical_reader.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__input.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__keymap.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__main.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__pager.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__reader.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__readline.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__simple_interact.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__trace.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__types.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__unix_console.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__unix_eventqueue.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__utils.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__pyrepl__windows_console.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__sitebuiltins.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__strptime.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__threading_local.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M__weakrefset.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_abc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_argparse.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ast.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__base_events.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__base_futures.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__base_subprocess.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__base_tasks.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__constants.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__coroutines.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__events.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__exceptions.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__format_helpers.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__futures.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__locks.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__log.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__mixins.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__proactor_events.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__protocols.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__queues.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__runners.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__selector_events.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__sslproto.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__staggered.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__streams.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__subprocess.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__taskgroups.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__tasks.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__threads.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__timeouts.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__transports.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__trsock.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__unix_events.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__windows_events.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_asyncio__windows_utils.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_base64.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_bdb.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_bisect.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_bz2.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_calendar.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_cmd.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_code.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_codecs.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_codeop.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_collections.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_collections__abc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_concurrent.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_concurrent__futures.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_concurrent__futures___base.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_concurrent__futures__process.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_concurrent__futures__thread.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_contextlib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_contextvars.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_copy.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_copyreg.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_csv.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ctypes.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ctypes___aix.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ctypes___endian.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ctypes__macholib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ctypes__macholib__dyld.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ctypes__macholib__dylib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ctypes__macholib__framework.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ctypes__util.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ctypes__wintypes.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_curses.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_curses__has_key.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_dataclasses.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_datetime.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_decimal.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_difflib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_dis.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_doctest.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email___encoded_words.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email___header_value_parser.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email___parseaddr.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email___policybase.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__base64mime.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__charset.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__contentmanager.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__encoders.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__errors.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__feedparser.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__generator.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__header.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__headerregistry.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__iterators.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__message.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__parser.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__policy.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__quoprimime.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_email__utils.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_encodings.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_encodings__aliases.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_encodings__latin_1.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_encodings__mbcs.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_encodings__utf_8.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_enum.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_fnmatch.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_fractions.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ftplib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_functools.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_genericpath.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_getopt.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_getpass.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_gettext.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_glob.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_gzip.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_hashlib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_heapq.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_hmac.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_html.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_html__entities.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_http.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_http__client.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_http__cookiejar.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_http__server.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib___abc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib___bootstrap.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib___bootstrap_external.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__abc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__machinery.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___adapters.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___collections.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___functools.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___itertools.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___meta.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__metadata___text.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__readers.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__resources.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__resources___adapters.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__resources___common.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__resources___functional.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__resources___itertools.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__resources__abc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__resources__readers.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_importlib__util.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_inspect.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_io.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ipaddress.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_json.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_json__decoder.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_json__encoder.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_json__scanner.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_keyword.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_linecache.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_locale.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_logging.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_lzma.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_mimetypes.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__connection.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__context.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__dummy.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__dummy__connection.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__forkserver.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__heap.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__managers.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__pool.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__popen_fork.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__popen_forkserver.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__popen_spawn_posix.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__popen_spawn_win32.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__process.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__queues.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__reduction.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__resource_sharer.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__resource_tracker.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__shared_memory.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__sharedctypes.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__spawn.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__synchronize.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_multiprocessing__util.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_netrc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ntpath.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_nturl2path.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_numbers.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_opcode.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_operator.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_os.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pathlib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pathlib___abc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pathlib___local.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pdb.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pickle.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pkgutil.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_platform.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_plistlib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_posixpath.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pprint.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_py_compile.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pydoc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pydoc_data.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_pydoc_data__topics.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_queue.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_quopri.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_random.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_re.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_re___casefix.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_re___compiler.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_re___constants.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_re___parser.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_reprlib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_rlcompleter.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_runpy.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_secrets.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_selectors.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_shlex.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_shutil.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_signal.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_site.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_socket.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_socketserver.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_ssl.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_stat.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_statistics.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_string.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_struct.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_subprocess.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_sysconfig.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_tarfile.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_tempfile.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_test.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_test__support.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_test__support__import_helper.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_test__support__os_helper.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_test__support__script_helper.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_textwrap.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_threading.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_tkinter.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_tkinter__constants.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_token.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_tokenize.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_traceback.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_tracemalloc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_tty.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_types.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_typing.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest___log.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__async_case.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__case.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__loader.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__main.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__mock.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__result.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__runner.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__signals.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__suite.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_unittest__util.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_urllib.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_urllib__error.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_urllib__parse.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_urllib__request.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_urllib__response.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_warnings.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_weakref.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_webbrowser.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_xml.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_xml__parsers.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_xml__parsers__expat.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_xmlrpc.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_xmlrpc__client.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_zipfile.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_zipfile___path.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_zipfile___path__glob.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\frozen_modules\M_zipimport.c">
+      <Filter>frozen_modules</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\PC\python_nt.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Modules\extras\codecs.py">
+      <Filter>Modules</Filter>
+    </None>
+    <None Include="..\Modules\encodings\name.py">
+      <Filter>Modules\encodings</Filter>
+    </None>
+    <None Include="..\frozen_modules\Makefile">
+      <Filter>frozen_modules</Filter>
+    </None>
   </ItemGroup>
 </Project>

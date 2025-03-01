@@ -1,0 +1,18 @@
+﻿  Performing Custom Build Tools
+   Assembling: D:\Python-3.13.0\externals\mpdecimal-4.0.0\libmpdec\vcdiv64.asm
+  _decimal.c
+  basearith.c
+  constants.c
+  context.c
+  convolute.c
+  crt.c
+  difradix2.c
+  fnt.c
+  fourstep.c
+  io.c
+  mpalloc.c
+  mpdecimal.c
+  numbertheory.c
+  sixstep.c
+  transpose.c
+  _decimal.vcxproj -> D:\Python-3.13.0\PCbuild\amd64\_decimal.pyd

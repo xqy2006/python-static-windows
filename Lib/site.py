@@ -320,8 +320,10 @@ def _get_path(userbase):
     implementation = _get_implementation()
     implementation_lower = implementation.lower()
     if os.name == 'nt':
-        ver_nodot = sys.winver.replace('.', '')
-        return f'{userbase}\\{implementation}{ver_nodot}\\site-packages'
+        import sysconfig
+        sysconfig.get_path('purelib', os.name+'_user')
+        #ver_nodot = sys.winver.replace('.', '')
+        #return f'{userbase}\\{implementation}{ver_nodot}\\site-packages'
 
     if sys.platform == 'darwin' and sys._framework:
         return f'{userbase}/lib/{implementation_lower}/site-packages'

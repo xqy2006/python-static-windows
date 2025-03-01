@@ -2,6 +2,8 @@
 
 See the notes at the top of Python/frozen.c for more info.
 """
+import subprocess
+
 
 from collections import namedtuple
 import hashlib
@@ -10,7 +12,15 @@ import ntpath
 import posixpath
 import argparse
 from update_file import updating_file_with_tmpfile
+AUTO_FROZEN_FILE = 'frozen_auto.cfg'
 
+def load_auto_frozen():
+    with open(AUTO_FROZEN_FILE) as f:
+        return [
+            line.strip()
+            for line in f
+            if line.strip() and not line.startswith('#')
+        ]
 
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
 ROOT_DIR = os.path.abspath(ROOT_DIR)
@@ -28,6 +38,8 @@ PCBUILD_FILTERS = os.path.join(ROOT_DIR, 'PCbuild', '_freeze_module.vcxproj.filt
 PCBUILD_PYTHONCORE = os.path.join(ROOT_DIR, 'PCbuild', 'pythoncore.vcxproj')
 
 
+FREEZE_MODULE_EXE = os.path.join(ROOT_DIR, 'PCbuild', 'amd641', '_freeze_module.exe')
+
 OS_PATH = 'ntpath' if os.name == 'nt' else 'posixpath'
 
 # These are modules that get frozen.
@@ -39,6 +51,7 @@ FROZEN = [
     # See parse_frozen_spec() for the format.
     # In cases where the frozenid is duplicated, the first one is re-used.
     ('import system', [
+        *load_auto_frozen(),
         # These frozen modules are necessary for bootstrapping
         # the import system.
         'importlib._bootstrap : _frozen_importlib',
@@ -76,6 +89,7 @@ FROZEN = [
         "runpy",
     ]),
     (TESTS_SECTION, [
+        
         '__hello__',
         '__hello__ : __hello_alias__',
         '__hello__ : <__phello_alias__>',
@@ -90,6 +104,110 @@ BOOTSTRAP = {
     'importlib._bootstrap_external',
     'zipimport',
 }
+
+
+import os
+import subprocess
+from collections import namedtuple
+import shutil
+# 定义冻结模块数据结构
+FrozenModule1 = namedtuple('FrozenModule', [
+    'fullname',      # 完整模块名（如"encodings.utf_8"）
+    'py_path',       # 源文件路径（如"Lib/encodings/utf_8.py"）
+    'h_path',        # 生成的头文件路径（如"Python/frozen_modules/encodings/utf_8.h"）
+    'c_path',        # 生成的C文件路径（如"Python/frozen_modules/encodings/utf_8.c"）
+    'is_package'     # 是否为包目录
+])
+
+def find_python_modules(root_dir):
+    """
+    递归查找所有Python模块
+    返回生成器：FrozenModule对象
+    """
+    for root, dirs, files in os.walk(os.path.join(root_dir, 'Lib')):
+        # 处理包目录
+        if '__init__.py' in files:
+            pkg_relpath = os.path.relpath(root, os.path.join(root_dir, 'Lib'))
+            pkg_name = pkg_relpath.replace(os.sep, '.')
+            
+            # 生成包自身的模块信息
+            yield FrozenModule1(
+                fullname=pkg_name,
+                py_path=os.path.join(root, '__init__.py'),
+                h_path=os.path.join(root_dir, 'Python', 'frozen_modules', f"{pkg_relpath}.h"),
+                c_path=os.path.join(root_dir, 'Python', 'frozen_modules', f"{pkg_relpath}.h"),
+                is_package=True
+            )
+            
+            # 处理包内子模块
+            for f in files:
+                if f.endswith('.py') and f != '__init__.py':
+                    mod_name = f[:-3]
+                    yield FrozenModule1(
+                        fullname=f"{pkg_name}.{mod_name}",
+                        py_path=os.path.join(root, f),
+                        h_path=os.path.join(root_dir, 'Python', 'frozen_modules', f"{pkg_relpath}.{mod_name}.h"),
+                        c_path=os.path.join(root_dir, 'Python', 'frozen_modules', f"{pkg_relpath}.{mod_name}.h"),
+                        is_package=False
+                    )
+        
+        # 处理非包普通模块
+        elif root == os.path.join(root_dir, 'Lib'):
+            for f in files:
+                if f.endswith('.py'):
+                    mod_name = f[:-3]
+                    yield FrozenModule1(
+                        fullname=mod_name,
+                        py_path=os.path.join(root, f),
+                        h_path=os.path.join(root_dir, 'Python', 'frozen_modules', f"{mod_name}.h"),
+                        c_path=os.path.join(root_dir, 'Python', 'frozen_modules', f"{mod_name}.c"),
+                        is_package=False
+                    )
+
+def generate_frozen_files(root_dir):
+    """
+    核心生成函数
+    """
+    # 清理旧文件
+    frozen_dir = os.path.join(root_dir, 'Python', 'frozen_modules')
+    if os.path.exists(frozen_dir):
+        shutil.rmtree(frozen_dir)
+    
+    # 创建冻结工具路径
+    freeze_tool = os.path.join(root_dir, 'PCbuild', 'amd641', '_freeze_module.exe')
+    
+    # 遍历所有模块
+    for module in find_python_modules(root_dir):
+        # 创建目标目录
+        os.makedirs(os.path.dirname(module.h_path), exist_ok=True)
+        
+        # 构建命令行参数
+        cmd = [
+            freeze_tool,
+             module.fullname,
+            module.py_path,
+            module.h_path,
+        ]
+        print(f"冻结命令: {' '.join(cmd)}")
+        # 执行冻结命令
+        try:
+            result = subprocess.run(
+                cmd,
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.STDOUT,
+                text=True,
+                encoding='utf-8',
+                cwd=root_dir
+            )
+            print(f"成功冻结: {module.fullname}")
+            print(f"生成文件: {module.h_path}")
+            print(f"          {module.c_path}")
+            
+        except subprocess.CalledProcessError as e:
+            print(f"冻结失败: {module.fullname}")
+            print("错误输出:")
+            print(e.stdout)
 
 
 #######################################
@@ -238,6 +356,7 @@ class FrozenSource(namedtuple('FrozenSource', 'id pyfile frozenfile')):
         if not pyfile:
             pyfile = os.path.join(STDLIB_DIR, *frozenid.split('.')) + '.py'
             #assert os.path.exists(pyfile), (frozenid, pyfile)
+        #print(frozenid)
         frozenfile = resolve_frozen_file(frozenid, FROZEN_MODULES_DIR)
         return cls(frozenid, pyfile, frozenfile)
 
@@ -347,43 +466,50 @@ def _get_checksum(filename):
 
 
 def resolve_modules(modname, pyfile=None):
-    if modname.startswith('<') and modname.endswith('>'):
-        if pyfile:
-            assert os.path.isdir(pyfile) or os.path.basename(pyfile) == '__init__.py', pyfile
-        ispkg = True
-        modname = modname[1:-1]
-        rawname = modname
-        # For now, we only expect match patterns at the end of the name.
-        _modname, sep, match = modname.rpartition('.')
-        if sep:
-            if _modname.endswith('.**'):
-                modname = _modname[:-3]
-                match = f'**.{match}'
-            elif match and not match.isidentifier():
-                modname = _modname
-            # Otherwise it's a plain name so we leave it alone.
-        else:
-            match = None
-    else:
-        ispkg = False
-        rawname = modname
-        match = None
-
-    if not check_modname(modname):
-        raise ValueError(f'not a valid module name ({rawname})')
-
+    """自动识别包目录和普通模块"""
+    # 自动检测包结构
     if not pyfile:
-        pyfile = _resolve_module(modname, ispkg=ispkg)
-    elif os.path.isdir(pyfile):
-        pyfile = _resolve_module(modname, pyfile, ispkg)
-    yield modname, pyfile, ispkg
+        pyfile = _resolve_module(modname, ispkg=False)
+        if os.path.isdir(pyfile):
+            pyfile = os.path.join(pyfile, '__init__.py')
+    
+    ispkg = False
+    # 检查是否为包
+    if os.path.basename(pyfile) == '__init__.py':
+        ispkg = True
+        actual_path = os.path.dirname(pyfile)
+    else:
+        actual_path = pyfile
+    
+    # 处理包目录的递归发现
+    if os.path.isdir(actual_path):
+        ispkg = True
+        yield from _find_package_modules(modname, actual_path)
+    else:
+        yield modname, pyfile, ispkg
 
-    if match:
-        pkgdir = os.path.dirname(pyfile)
-        yield from iter_submodules(modname, pkgdir, match)
-
+def _find_package_modules(pkgname, pkgdir):
+    """递归发现包内所有子模块"""
+    yield pkgname, os.path.join(pkgdir, '__init__.py'), True
+    
+    for root, dirs, files in os.walk(pkgdir):
+        rel_path = os.path.relpath(root, pkgdir).replace(os.sep, '.')
+        if rel_path == '.':
+            rel_path = ''
+        
+        for f in files:
+            if f.endswith('.py') and f != '__init__.py':
+                modname = f'{pkgname}.{rel_path}.{f[:-3]}' if rel_path else f'{pkgname}.{f[:-3]}'
+                yield modname, os.path.join(root, f), False
+        
+        for d in dirs:
+            subdir = os.path.join(root, d)
+            if os.path.exists(os.path.join(subdir, '__init__.py')):
+                submod = f'{pkgname}.{rel_path}.{d}' if rel_path else f'{pkgname}.{d}'
+                yield from _find_package_modules(submod, subdir)
 
 def check_modname(modname):
+    print(modname)
     return all(n.isidentifier() for n in modname.split('.'))
 
 
@@ -577,7 +703,7 @@ def regen_makefile(modules):
     for src in _iter_sources(modules):
         frozen_header = relpath_for_posix_display(src.frozenfile, ROOT_DIR)
         frozenfiles.append(f'\t\t{frozen_header} \\')
-
+        #print(frozen_header)
         pyfile = relpath_for_posix_display(src.pyfile, ROOT_DIR)
         pyfiles.append(f'\t\t{pyfile} \\')
 
@@ -678,7 +804,7 @@ def main():
     regen_makefile(modules)
     regen_pcbuild(modules)
     regen_frozen(modules)
-
+    generate_frozen_files(ROOT_DIR)
 
 if __name__ == '__main__':
     main()

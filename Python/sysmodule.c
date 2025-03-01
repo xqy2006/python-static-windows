@@ -69,6 +69,9 @@ module sys
 
 #include "clinic/sysmodule.c.h"
 
+static PyObject* get_winver(PyObject *self) {
+    return PyUnicode_FromString("3.13.0");  // 替换为你的 Python 版本
+}
 
 PyObject *
 _PySys_GetAttr(PyThreadState *tstate, PyObject *name)
@@ -1101,7 +1104,8 @@ sys_settrace(PyObject *module, PyObject *function)
         }
     }
     else {
-        if (_PyEval_SetTrace(tstate, trace_trampoline, function) < 0) {
+        //if (_PyEval_SetTrace(tstate, trace_trampoline, function) < 0) {
+        if (_PyEval_SetTrace(tstate, NULL, NULL) < 0) {
             return NULL;
         }
     }
@@ -1124,18 +1128,19 @@ static PyObject *
 sys__settraceallthreads(PyObject *module, PyObject *arg)
 /*[clinic end generated code: output=161cca30207bf3ca input=d4bde1f810d73675]*/
 {
-    PyObject* argument = NULL;
-    Py_tracefunc func = NULL;
-
-    if (arg != Py_None) {
-        func = trace_trampoline;
-        argument = arg;
-    }
-
-
-    PyEval_SetTraceAllThreads(func, argument);
-
     Py_RETURN_NONE;
+    //PyObject* argument = NULL;
+    //Py_tracefunc func = NULL;
+
+    //if (arg != Py_None) {
+    //    func = trace_trampoline;
+    //    argument = arg;
+    //}
+
+
+    //PyEval_SetTraceAllThreads(func, argument);
+
+    //Py_RETURN_NONE;
 }
 
 /*[clinic input]
@@ -1155,7 +1160,8 @@ sys_gettrace_impl(PyObject *module)
 
     if (temp == NULL)
         temp = Py_None;
-    return Py_NewRef(temp);
+    //return Py_NewRef(temp);
+    Py_RETURN_NONE;
 }
 
 /*[clinic input]
@@ -1181,7 +1187,7 @@ sys_setprofile(PyObject *module, PyObject *function)
         }
     }
     else {
-        if (_PyEval_SetProfile(tstate, profile_trampoline, function) < 0) {
+        if (_PyEval_SetProfile(tstate, NULL, NULL) < 0) {
             return NULL;
         }
     }
@@ -1204,6 +1210,7 @@ static PyObject *
 sys__setprofileallthreads(PyObject *module, PyObject *arg)
 /*[clinic end generated code: output=2d61319e27b309fe input=a10589439ba20cee]*/
 {
+    Py_RETURN_NONE;
     PyObject* argument = NULL;
     Py_tracefunc func = NULL;
 
@@ -1212,7 +1219,7 @@ sys__setprofileallthreads(PyObject *module, PyObject *arg)
         argument = arg;
     }
 
-    PyEval_SetProfileAllThreads(func, argument);
+    //PyEval_SetProfileAllThreads(func, argument);
 
     Py_RETURN_NONE;
 }
@@ -1234,7 +1241,8 @@ sys_getprofile_impl(PyObject *module)
 
     if (temp == NULL)
         temp = Py_None;
-    return Py_NewRef(temp);
+    //return Py_NewRef(temp);
+    Py_RETURN_NONE;
 }
 
 
@@ -2621,6 +2629,7 @@ static PyMethodDef sys_methods[] = {
 #endif
     SYS__GET_CPU_COUNT_CONFIG_METHODDEF
     SYS__IS_GIL_ENABLED_METHODDEF
+    {"get_winver", (PyCFunction)get_winver, METH_NOARGS, "Get the version of Windows."},
     {NULL, NULL}  // sentinel
 };
 

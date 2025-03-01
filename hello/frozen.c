@@ -1,0 +1,641 @@
+extern unsigned char M___future__[];
+extern unsigned char M___main__[];
+extern unsigned char M__aix_support[];
+extern unsigned char M__collections_abc[];
+extern unsigned char M__colorize[];
+extern unsigned char M__compat_pickle[];
+extern unsigned char M__compression[];
+extern unsigned char M__ios_support[];
+extern unsigned char M__opcode_metadata[];
+extern unsigned char M__osx_support[];
+extern unsigned char M__py_abc[];
+extern unsigned char M__pydatetime[];
+extern unsigned char M__pydecimal[];
+extern unsigned char M__pyrepl[];
+extern unsigned char M__pyrepl___minimal_curses[];
+extern unsigned char M__pyrepl___threading_handler[];
+extern unsigned char M__pyrepl__commands[];
+extern unsigned char M__pyrepl__completing_reader[];
+extern unsigned char M__pyrepl__console[];
+extern unsigned char M__pyrepl__curses[];
+extern unsigned char M__pyrepl__fancy_termios[];
+extern unsigned char M__pyrepl__historical_reader[];
+extern unsigned char M__pyrepl__input[];
+extern unsigned char M__pyrepl__keymap[];
+extern unsigned char M__pyrepl__main[];
+extern unsigned char M__pyrepl__pager[];
+extern unsigned char M__pyrepl__reader[];
+extern unsigned char M__pyrepl__readline[];
+extern unsigned char M__pyrepl__simple_interact[];
+extern unsigned char M__pyrepl__trace[];
+extern unsigned char M__pyrepl__types[];
+extern unsigned char M__pyrepl__unix_console[];
+extern unsigned char M__pyrepl__unix_eventqueue[];
+extern unsigned char M__pyrepl__utils[];
+extern unsigned char M__pyrepl__windows_console[];
+extern unsigned char M__sitebuiltins[];
+extern unsigned char M__strptime[];
+extern unsigned char M__threading_local[];
+extern unsigned char M__weakrefset[];
+extern unsigned char M_abc[];
+extern unsigned char M_argparse[];
+extern unsigned char M_ast[];
+extern unsigned char M_asyncio[];
+extern unsigned char M_asyncio__base_events[];
+extern unsigned char M_asyncio__base_futures[];
+extern unsigned char M_asyncio__base_subprocess[];
+extern unsigned char M_asyncio__base_tasks[];
+extern unsigned char M_asyncio__constants[];
+extern unsigned char M_asyncio__coroutines[];
+extern unsigned char M_asyncio__events[];
+extern unsigned char M_asyncio__exceptions[];
+extern unsigned char M_asyncio__format_helpers[];
+extern unsigned char M_asyncio__futures[];
+extern unsigned char M_asyncio__locks[];
+extern unsigned char M_asyncio__log[];
+extern unsigned char M_asyncio__mixins[];
+extern unsigned char M_asyncio__proactor_events[];
+extern unsigned char M_asyncio__protocols[];
+extern unsigned char M_asyncio__queues[];
+extern unsigned char M_asyncio__runners[];
+extern unsigned char M_asyncio__selector_events[];
+extern unsigned char M_asyncio__sslproto[];
+extern unsigned char M_asyncio__staggered[];
+extern unsigned char M_asyncio__streams[];
+extern unsigned char M_asyncio__subprocess[];
+extern unsigned char M_asyncio__taskgroups[];
+extern unsigned char M_asyncio__tasks[];
+extern unsigned char M_asyncio__threads[];
+extern unsigned char M_asyncio__timeouts[];
+extern unsigned char M_asyncio__transports[];
+extern unsigned char M_asyncio__trsock[];
+extern unsigned char M_asyncio__unix_events[];
+extern unsigned char M_asyncio__windows_events[];
+extern unsigned char M_asyncio__windows_utils[];
+extern unsigned char M_base64[];
+extern unsigned char M_bdb[];
+extern unsigned char M_bisect[];
+extern unsigned char M_bz2[];
+extern unsigned char M_calendar[];
+extern unsigned char M_cmd[];
+extern unsigned char M_code[];
+extern unsigned char M_codecs[];
+extern unsigned char M_codeop[];
+extern unsigned char M_collections[];
+extern unsigned char M_collections__abc[];
+extern unsigned char M_concurrent[];
+extern unsigned char M_concurrent__futures[];
+extern unsigned char M_concurrent__futures___base[];
+extern unsigned char M_concurrent__futures__process[];
+extern unsigned char M_concurrent__futures__thread[];
+extern unsigned char M_contextlib[];
+extern unsigned char M_contextvars[];
+extern unsigned char M_copy[];
+extern unsigned char M_copyreg[];
+extern unsigned char M_csv[];
+extern unsigned char M_ctypes[];
+extern unsigned char M_ctypes___aix[];
+extern unsigned char M_ctypes___endian[];
+extern unsigned char M_ctypes__macholib[];
+extern unsigned char M_ctypes__macholib__dyld[];
+extern unsigned char M_ctypes__macholib__dylib[];
+extern unsigned char M_ctypes__macholib__framework[];
+extern unsigned char M_ctypes__util[];
+extern unsigned char M_ctypes__wintypes[];
+extern unsigned char M_curses[];
+extern unsigned char M_curses__has_key[];
+extern unsigned char M_dataclasses[];
+extern unsigned char M_datetime[];
+extern unsigned char M_decimal[];
+extern unsigned char M_difflib[];
+extern unsigned char M_dis[];
+extern unsigned char M_doctest[];
+extern unsigned char M_email[];
+extern unsigned char M_email___encoded_words[];
+extern unsigned char M_email___header_value_parser[];
+extern unsigned char M_email___parseaddr[];
+extern unsigned char M_email___policybase[];
+extern unsigned char M_email__base64mime[];
+extern unsigned char M_email__charset[];
+extern unsigned char M_email__contentmanager[];
+extern unsigned char M_email__encoders[];
+extern unsigned char M_email__errors[];
+extern unsigned char M_email__feedparser[];
+extern unsigned char M_email__generator[];
+extern unsigned char M_email__header[];
+extern unsigned char M_email__headerregistry[];
+extern unsigned char M_email__iterators[];
+extern unsigned char M_email__message[];
+extern unsigned char M_email__parser[];
+extern unsigned char M_email__policy[];
+extern unsigned char M_email__quoprimime[];
+extern unsigned char M_email__utils[];
+extern unsigned char M_encodings[];
+extern unsigned char M_encodings__aliases[];
+extern unsigned char M_encodings__latin_1[];
+extern unsigned char M_encodings__mbcs[];
+extern unsigned char M_encodings__utf_8[];
+extern unsigned char M_enum[];
+extern unsigned char M_fnmatch[];
+extern unsigned char M_fractions[];
+extern unsigned char M_ftplib[];
+extern unsigned char M_functools[];
+extern unsigned char M_genericpath[];
+extern unsigned char M_getopt[];
+extern unsigned char M_getpass[];
+extern unsigned char M_gettext[];
+extern unsigned char M_glob[];
+extern unsigned char M_gzip[];
+extern unsigned char M_hashlib[];
+extern unsigned char M_heapq[];
+extern unsigned char M_hmac[];
+extern unsigned char M_html[];
+extern unsigned char M_html__entities[];
+extern unsigned char M_http[];
+extern unsigned char M_http__client[];
+extern unsigned char M_http__cookiejar[];
+extern unsigned char M_http__server[];
+extern unsigned char M_importlib[];
+extern unsigned char M_importlib___abc[];
+extern unsigned char M_importlib___bootstrap[];
+extern unsigned char M_importlib___bootstrap_external[];
+extern unsigned char M_importlib__abc[];
+extern unsigned char M_importlib__machinery[];
+extern unsigned char M_importlib__metadata[];
+extern unsigned char M_importlib__metadata___adapters[];
+extern unsigned char M_importlib__metadata___collections[];
+extern unsigned char M_importlib__metadata___functools[];
+extern unsigned char M_importlib__metadata___itertools[];
+extern unsigned char M_importlib__metadata___meta[];
+extern unsigned char M_importlib__metadata___text[];
+extern unsigned char M_importlib__readers[];
+extern unsigned char M_importlib__resources[];
+extern unsigned char M_importlib__resources___adapters[];
+extern unsigned char M_importlib__resources___common[];
+extern unsigned char M_importlib__resources___functional[];
+extern unsigned char M_importlib__resources___itertools[];
+extern unsigned char M_importlib__resources__abc[];
+extern unsigned char M_importlib__resources__readers[];
+extern unsigned char M_importlib__util[];
+extern unsigned char M_inspect[];
+extern unsigned char M_io[];
+extern unsigned char M_ipaddress[];
+extern unsigned char M_json[];
+extern unsigned char M_json__decoder[];
+extern unsigned char M_json__encoder[];
+extern unsigned char M_json__scanner[];
+extern unsigned char M_keyword[];
+extern unsigned char M_linecache[];
+extern unsigned char M_locale[];
+extern unsigned char M_logging[];
+extern unsigned char M_lzma[];
+extern unsigned char M_mimetypes[];
+extern unsigned char M_multiprocessing[];
+extern unsigned char M_multiprocessing__connection[];
+extern unsigned char M_multiprocessing__context[];
+extern unsigned char M_multiprocessing__dummy[];
+extern unsigned char M_multiprocessing__dummy__connection[];
+extern unsigned char M_multiprocessing__forkserver[];
+extern unsigned char M_multiprocessing__heap[];
+extern unsigned char M_multiprocessing__managers[];
+extern unsigned char M_multiprocessing__pool[];
+extern unsigned char M_multiprocessing__popen_fork[];
+extern unsigned char M_multiprocessing__popen_forkserver[];
+extern unsigned char M_multiprocessing__popen_spawn_posix[];
+extern unsigned char M_multiprocessing__popen_spawn_win32[];
+extern unsigned char M_multiprocessing__process[];
+extern unsigned char M_multiprocessing__queues[];
+extern unsigned char M_multiprocessing__reduction[];
+extern unsigned char M_multiprocessing__resource_sharer[];
+extern unsigned char M_multiprocessing__resource_tracker[];
+extern unsigned char M_multiprocessing__shared_memory[];
+extern unsigned char M_multiprocessing__sharedctypes[];
+extern unsigned char M_multiprocessing__spawn[];
+extern unsigned char M_multiprocessing__synchronize[];
+extern unsigned char M_multiprocessing__util[];
+extern unsigned char M_netrc[];
+extern unsigned char M_ntpath[];
+extern unsigned char M_nturl2path[];
+extern unsigned char M_numbers[];
+extern unsigned char M_opcode[];
+extern unsigned char M_operator[];
+extern unsigned char M_os[];
+extern unsigned char M_pathlib[];
+extern unsigned char M_pathlib___abc[];
+extern unsigned char M_pathlib___local[];
+extern unsigned char M_pdb[];
+extern unsigned char M_pickle[];
+extern unsigned char M_pkgutil[];
+extern unsigned char M_platform[];
+extern unsigned char M_plistlib[];
+extern unsigned char M_posixpath[];
+extern unsigned char M_pprint[];
+extern unsigned char M_py_compile[];
+extern unsigned char M_pydoc[];
+extern unsigned char M_pydoc_data[];
+extern unsigned char M_pydoc_data__topics[];
+extern unsigned char M_queue[];
+extern unsigned char M_quopri[];
+extern unsigned char M_random[];
+extern unsigned char M_re[];
+extern unsigned char M_re___casefix[];
+extern unsigned char M_re___compiler[];
+extern unsigned char M_re___constants[];
+extern unsigned char M_re___parser[];
+extern unsigned char M_reprlib[];
+extern unsigned char M_rlcompleter[];
+extern unsigned char M_runpy[];
+extern unsigned char M_secrets[];
+extern unsigned char M_selectors[];
+extern unsigned char M_shlex[];
+extern unsigned char M_shutil[];
+extern unsigned char M_signal[];
+extern unsigned char M_site[];
+extern unsigned char M_socket[];
+extern unsigned char M_socketserver[];
+extern unsigned char M_ssl[];
+extern unsigned char M_stat[];
+extern unsigned char M_statistics[];
+extern unsigned char M_string[];
+extern unsigned char M_struct[];
+extern unsigned char M_subprocess[];
+extern unsigned char M_sysconfig[];
+extern unsigned char M_tarfile[];
+extern unsigned char M_tempfile[];
+extern unsigned char M_test[];
+extern unsigned char M_test__support[];
+extern unsigned char M_test__support__import_helper[];
+extern unsigned char M_test__support__os_helper[];
+extern unsigned char M_test__support__script_helper[];
+extern unsigned char M_textwrap[];
+extern unsigned char M_threading[];
+extern unsigned char M_tkinter[];
+extern unsigned char M_tkinter__constants[];
+extern unsigned char M_token[];
+extern unsigned char M_tokenize[];
+extern unsigned char M_traceback[];
+extern unsigned char M_tracemalloc[];
+extern unsigned char M_tty[];
+extern unsigned char M_types[];
+extern unsigned char M_typing[];
+extern unsigned char M_unittest[];
+extern unsigned char M_unittest___log[];
+extern unsigned char M_unittest__async_case[];
+extern unsigned char M_unittest__case[];
+extern unsigned char M_unittest__loader[];
+extern unsigned char M_unittest__main[];
+extern unsigned char M_unittest__mock[];
+extern unsigned char M_unittest__result[];
+extern unsigned char M_unittest__runner[];
+extern unsigned char M_unittest__signals[];
+extern unsigned char M_unittest__suite[];
+extern unsigned char M_unittest__util[];
+extern unsigned char M_urllib[];
+extern unsigned char M_urllib__error[];
+extern unsigned char M_urllib__parse[];
+extern unsigned char M_urllib__request[];
+extern unsigned char M_urllib__response[];
+extern unsigned char M_warnings[];
+extern unsigned char M_weakref[];
+extern unsigned char M_webbrowser[];
+extern unsigned char M_xml[];
+extern unsigned char M_xml__parsers[];
+extern unsigned char M_xml__parsers__expat[];
+extern unsigned char M_xmlrpc[];
+extern unsigned char M_xmlrpc__client[];
+extern unsigned char M_zipfile[];
+extern unsigned char M_zipfile___path[];
+extern unsigned char M_zipfile___path__glob[];
+extern unsigned char M_zipimport[];
+
+#include "Python.h"
+
+static struct _frozen _PyImport_FrozenModules[] = {
+	{"__future__", M___future__, 4707, 0},
+	{"__main__", M___main__, 147, 0},
+	{"_aix_support", M__aix_support, 4702, 0},
+	{"_collections_abc", M__collections_abc, 46655, 0},
+	{"_colorize", M__colorize, 2699, 0},
+	{"_compat_pickle", M__compat_pickle, 7173, 0},
+	{"_compression", M__compression, 7790, 0},
+	{"_ios_support", M__ios_support, 2701, 0},
+	{"_opcode_metadata", M__opcode_metadata, 10663, 0},
+	{"_osx_support", M__osx_support, 18100, 0},
+	{"_py_abc", M__py_abc, 7173, 0},
+	{"_pydatetime", M__pydatetime, 94600, 0},
+	{"_pydecimal", M__pydecimal, 217007, 0},
+	{"_pyrepl", M__pyrepl, 121, 1},
+	{"_pyrepl._minimal_curses", M__pyrepl___minimal_curses, 3562, 0},
+	{"_pyrepl._threading_handler", M__pyrepl___threading_handler, 4847, 0},
+	{"_pyrepl.commands", M__pyrepl__commands, 25297, 0},
+	{"_pyrepl.completing_reader", M__pyrepl__completing_reader, 10638, 0},
+	{"_pyrepl.console", M__pyrepl__console, 8907, 0},
+	{"_pyrepl.curses", M__pyrepl__curses, 529, 0},
+	{"_pyrepl.fancy_termios", M__pyrepl__fancy_termios, 3003, 0},
+	{"_pyrepl.historical_reader", M__pyrepl__historical_reader, 21305, 0},
+	{"_pyrepl.input", M__pyrepl__input, 3967, 0},
+	{"_pyrepl.keymap", M__pyrepl__keymap, 6612, 0},
+	{"_pyrepl.main", M__pyrepl__main, 2797, 0},
+	{"_pyrepl.pager", M__pyrepl__pager, 9549, 0},
+	{"_pyrepl.reader", M__pyrepl__reader, 35917, 0},
+	{"_pyrepl.readline", M__pyrepl__readline, 26284, 0},
+	{"_pyrepl.simple_interact", M__pyrepl__simple_interact, 6661, 0},
+	{"_pyrepl.trace", M__pyrepl__trace, 875, 0},
+	{"_pyrepl.types", M__pyrepl__types, 432, 0},
+	{"_pyrepl.unix_console", M__pyrepl__unix_console, 36166, 0},
+	{"_pyrepl.unix_eventqueue", M__pyrepl__unix_eventqueue, 5929, 0},
+	{"_pyrepl.utils", M__pyrepl__utils, 1531, 0},
+	{"_pyrepl.windows_console", M__pyrepl__windows_console, 24746, 0},
+	{"_sitebuiltins", M__sitebuiltins, 4883, 0},
+	{"_strptime", M__strptime, 25191, 0},
+	{"_threading_local", M__threading_local, 8370, 0},
+	{"_weakrefset", M__weakrefset, 12018, 0},
+	{"abc", M_abc, 7898, 0},
+	{"argparse", M_argparse, 103877, 0},
+	{"ast", M_ast, 102818, 0},
+	{"asyncio", M_asyncio, 1444, 1},
+	{"asyncio.base_events", M_asyncio__base_events, 89122, 0},
+	{"asyncio.base_futures", M_asyncio__base_futures, 3109, 0},
+	{"asyncio.base_subprocess", M_asyncio__base_subprocess, 17166, 0},
+	{"asyncio.base_tasks", M_asyncio__base_tasks, 4147, 0},
+	{"asyncio.constants", M_asyncio__constants, 992, 0},
+	{"asyncio.coroutines", M_asyncio__coroutines, 4003, 0},
+	{"asyncio.events", M_asyncio__events, 36952, 0},
+	{"asyncio.exceptions", M_asyncio__exceptions, 3197, 0},
+	{"asyncio.format_helpers", M_asyncio__format_helpers, 4197, 0},
+	{"asyncio.futures", M_asyncio__futures, 17377, 0},
+	{"asyncio.locks", M_asyncio__locks, 28106, 0},
+	{"asyncio.log", M_asyncio__log, 264, 0},
+	{"asyncio.mixins", M_asyncio__mixins, 1083, 0},
+	{"asyncio.proactor_events", M_asyncio__proactor_events, 46046, 0},
+	{"asyncio.protocols", M_asyncio__protocols, 8389, 0},
+	{"asyncio.queues", M_asyncio__queues, 14754, 0},
+	{"asyncio.runners", M_asyncio__runners, 10044, 0},
+	{"asyncio.selector_events", M_asyncio__selector_events, 64110, 0},
+	{"asyncio.sslproto", M_asyncio__sslproto, 41421, 0},
+	{"asyncio.staggered", M_asyncio__staggered, 5478, 0},
+	{"asyncio.streams", M_asyncio__streams, 34238, 0},
+	{"asyncio.subprocess", M_asyncio__subprocess, 12279, 0},
+	{"asyncio.taskgroups", M_asyncio__taskgroups, 8686, 0},
+	{"asyncio.tasks", M_asyncio__tasks, 43447, 0},
+	{"asyncio.threads", M_asyncio__threads, 1224, 0},
+	{"asyncio.timeouts", M_asyncio__timeouts, 8720, 0},
+	{"asyncio.transports", M_asyncio__transports, 13700, 0},
+	{"asyncio.trsock", M_asyncio__trsock, 5137, 0},
+	{"asyncio.unix_events", M_asyncio__unix_events, 70330, 0},
+	{"asyncio.windows_events", M_asyncio__windows_events, 42182, 0},
+	{"asyncio.windows_utils", M_asyncio__windows_utils, 7439, 0},
+	{"base64", M_base64, 25774, 0},
+	{"bdb", M_bdb, 39476, 0},
+	{"bisect", M_bisect, 3482, 0},
+	{"bz2", M_bz2, 15150, 0},
+	{"calendar", M_calendar, 39313, 0},
+	{"cmd", M_cmd, 18941, 0},
+	{"code", M_code, 15733, 0},
+	{"codecs", M_codecs, 40521, 0},
+	{"codeop", M_codeop, 6526, 0},
+	{"collections", M_collections, 73082, 1},
+	{"collections.abc", M_collections__abc, 230, 0},
+	{"concurrent", M_concurrent, 124, 1},
+	{"concurrent.futures", M_concurrent__futures, 1248, 1},
+	{"concurrent.futures._base", M_concurrent__futures___base, 31908, 0},
+	{"concurrent.futures.process", M_concurrent__futures__process, 35523, 0},
+	{"concurrent.futures.thread", M_concurrent__futures__thread, 10431, 0},
+	{"contextlib", M_contextlib, 30479, 0},
+	{"contextvars", M_contextvars, 246, 0},
+	{"copy", M_copy, 10611, 0},
+	{"copyreg", M_copyreg, 7521, 0},
+	{"csv", M_csv, 20675, 0},
+	{"ctypes", M_ctypes, 25114, 1},
+	{"ctypes._aix", M_ctypes___aix, 12269, 0},
+	{"ctypes._endian", M_ctypes___endian, 3562, 0},
+	{"ctypes.macholib", M_ctypes__macholib, 301, 1},
+	{"ctypes.macholib.dyld", M_ctypes__macholib__dyld, 6805, 0},
+	{"ctypes.macholib.dylib", M_ctypes__macholib__dylib, 1208, 0},
+	{"ctypes.macholib.framework", M_ctypes__macholib__framework, 1338, 0},
+	{"ctypes.util", M_ctypes__util, 17229, 0},
+	{"ctypes.wintypes", M_ctypes__wintypes, 8690, 0},
+	{"curses", M_curses, 2785, 1},
+	{"curses.has_key", M_curses__has_key, 10381, 0},
+	{"dataclasses", M_dataclasses, 47746, 0},
+	{"datetime", M_datetime, 396, 0},
+	{"decimal", M_decimal, 2987, 0},
+	{"difflib", M_difflib, 71950, 0},
+	{"dis", M_dis, 47478, 0},
+	{"doctest", M_doctest, 107484, 0},
+	{"email", M_email, 1872, 1},
+	{"email._encoded_words", M_email___encoded_words, 8268, 0},
+	{"email._header_value_parser", M_email___header_value_parser, 136091, 0},
+	{"email._parseaddr", M_email___parseaddr, 23547, 0},
+	{"email._policybase", M_email___policybase, 17946, 0},
+	{"email.base64mime", M_email__base64mime, 3959, 0},
+	{"email.charset", M_email__charset, 14884, 0},
+	{"email.contentmanager", M_email__contentmanager, 12371, 0},
+	{"email.encoders", M_email__encoders, 2038, 0},
+	{"email.errors", M_email__errors, 7565, 0},
+	{"email.feedparser", M_email__feedparser, 20552, 0},
+	{"email.generator", M_email__generator, 20607, 0},
+	{"email.header", M_email__header, 24587, 0},
+	{"email.headerregistry", M_email__headerregistry, 31372, 0},
+	{"email.iterators", M_email__iterators, 2801, 0},
+	{"email.message", M_email__message, 51611, 0},
+	{"email.parser", M_email__parser, 6499, 0},
+	{"email.policy", M_email__policy, 11385, 0},
+	{"email.quoprimime", M_email__quoprimime, 9888, 0},
+	{"email.utils", M_email__utils, 16080, 0},
+	{"encodings", M_encodings, 6002, 1},
+	{"encodings.aliases", M_encodings__aliases, 12370, 0},
+	{"encodings.latin_1", M_encodings__latin_1, 2697, 0},
+	{"encodings.mbcs", M_encodings__mbcs, 2209, 0},
+	{"encodings.utf_8", M_encodings__utf_8, 2269, 0},
+	{"enum", M_enum, 84540, 0},
+	{"fnmatch", M_fnmatch, 6787, 0},
+	{"fractions", M_fractions, 38302, 0},
+	{"ftplib", M_ftplib, 42316, 0},
+	{"functools", M_functools, 42622, 0},
+	{"genericpath", M_genericpath, 7108, 0},
+	{"getopt", M_getopt, 8447, 0},
+	{"getpass", M_getpass, 7296, 0},
+	{"gettext", M_gettext, 22542, 0},
+	{"glob", M_glob, 23649, 0},
+	{"gzip", M_gzip, 31622, 0},
+	{"hashlib", M_hashlib, 8170, 0},
+	{"heapq", M_heapq, 17739, 0},
+	{"hmac", M_hmac, 10641, 0},
+	{"html", M_html, 4364, 1},
+	{"html.entities", M_html__entities, 97654, 0},
+	{"http", M_http, 9604, 1},
+	{"http.client", M_http__client, 57988, 0},
+	{"http.cookiejar", M_http__cookiejar, 82662, 0},
+	{"http.server", M_http__server, 55796, 0},
+	{"importlib", M_importlib, 4525, 1},
+	{"importlib._abc", M_importlib___abc, 1603, 0},
+	{"importlib._bootstrap", M_importlib___bootstrap, 56917, 0},
+	{"importlib._bootstrap_external", M_importlib___bootstrap_external, 64767, 0},
+	{"importlib.abc", M_importlib__abc, 10306, 0},
+	{"importlib.machinery", M_importlib__machinery, 1084, 0},
+	{"importlib.metadata", M_importlib__metadata, 52784, 1},
+	{"importlib.metadata._adapters", M_importlib__metadata___adapters, 3868, 0},
+	{"importlib.metadata._collections", M_importlib__metadata___collections, 1909, 0},
+	{"importlib.metadata._functools", M_importlib__metadata___functools, 3224, 0},
+	{"importlib.metadata._itertools", M_importlib__metadata___itertools, 2259, 0},
+	{"importlib.metadata._meta", M_importlib__metadata___meta, 3640, 0},
+	{"importlib.metadata._text", M_importlib__metadata___text, 3742, 0},
+	{"importlib.readers", M_importlib__readers, 447, 0},
+	{"importlib.resources", M_importlib__resources, 602, 1},
+	{"importlib.resources._adapters", M_importlib__resources___adapters, 9714, 0},
+	{"importlib.resources._common", M_importlib__resources___common, 8689, 0},
+	{"importlib.resources._functional", M_importlib__resources___functional, 3425, 0},
+	{"importlib.resources._itertools", M_importlib__resources___itertools, 1450, 0},
+	{"importlib.resources.abc", M_importlib__resources__abc, 8759, 0},
+	{"importlib.resources.readers", M_importlib__resources__readers, 11785, 0},
+	{"importlib.util", M_importlib__util, 11855, 0},
+	{"inspect", M_inspect, 135131, 0},
+	{"io", M_io, 4260, 0},
+	{"ipaddress", M_ipaddress, 91013, 0},
+	{"json", M_json, 13495, 1},
+	{"json.decoder", M_json__decoder, 13723, 0},
+	{"json.encoder", M_json__encoder, 15115, 0},
+	{"json.scanner", M_json__scanner, 3339, 0},
+	{"keyword", M_keyword, 1026, 0},
+	{"linecache", M_linecache, 7127, 0},
+	{"locale", M_locale, 58290, 0},
+	{"logging", M_logging, 94212, 1},
+	{"lzma", M_lzma, 15703, 0},
+	{"mimetypes", M_mimetypes, 24861, 0},
+	{"multiprocessing", M_multiprocessing, 961, 1},
+	{"multiprocessing.connection", M_multiprocessing__connection, 49399, 0},
+	{"multiprocessing.context", M_multiprocessing__context, 17237, 0},
+	{"multiprocessing.dummy", M_multiprocessing__dummy, 5764, 1},
+	{"multiprocessing.dummy.connection", M_multiprocessing__dummy__connection, 3574, 0},
+	{"multiprocessing.forkserver", M_multiprocessing__forkserver, 15686, 0},
+	{"multiprocessing.heap", M_multiprocessing__heap, 13991, 0},
+	{"multiprocessing.managers", M_multiprocessing__managers, 69040, 0},
+	{"multiprocessing.pool", M_multiprocessing__pool, 44807, 0},
+	{"multiprocessing.popen_fork", M_multiprocessing__popen_fork, 4521, 0},
+	{"multiprocessing.popen_forkserver", M_multiprocessing__popen_forkserver, 4096, 0},
+	{"multiprocessing.popen_spawn_posix", M_multiprocessing__popen_spawn_posix, 4017, 0},
+	{"multiprocessing.popen_spawn_win32", M_multiprocessing__popen_spawn_win32, 6408, 0},
+	{"multiprocessing.process", M_multiprocessing__process, 17757, 0},
+	{"multiprocessing.queues", M_multiprocessing__queues, 18957, 0},
+	{"multiprocessing.reduction", M_multiprocessing__reduction, 14128, 0},
+	{"multiprocessing.resource_sharer", M_multiprocessing__resource_sharer, 9073, 0},
+	{"multiprocessing.resource_tracker", M_multiprocessing__resource_tracker, 12245, 0},
+	{"multiprocessing.shared_memory", M_multiprocessing__shared_memory, 24224, 0},
+	{"multiprocessing.sharedctypes", M_multiprocessing__sharedctypes, 10904, 0},
+	{"multiprocessing.spawn", M_multiprocessing__spawn, 11809, 0},
+	{"multiprocessing.synchronize", M_multiprocessing__synchronize, 21486, 0},
+	{"multiprocessing.util", M_multiprocessing__util, 18553, 0},
+	{"netrc", M_netrc, 9128, 0},
+	{"ntpath", M_ntpath, 27676, 0},
+	{"nturl2path", M_nturl2path, 3085, 0},
+	{"numbers", M_numbers, 13760, 0},
+	{"opcode", M_opcode, 4029, 0},
+	{"operator", M_operator, 17344, 0},
+	{"os", M_os, 45755, 0},
+	{"pathlib", M_pathlib, 462, 1},
+	{"pathlib._abc", M_pathlib___abc, 39979, 0},
+	{"pathlib._local", M_pathlib___local, 41119, 0},
+	{"pdb", M_pdb, 104950, 0},
+	{"pickle", M_pickle, 78385, 0},
+	{"pkgutil", M_pkgutil, 19942, 0},
+	{"platform", M_platform, 44617, 0},
+	{"plistlib", M_plistlib, 43079, 0},
+	{"posixpath", M_posixpath, 17443, 0},
+	{"pprint", M_pprint, 29681, 0},
+	{"py_compile", M_py_compile, 10052, 0},
+	{"pydoc", M_pydoc, 139001, 0},
+	{"pydoc_data", M_pydoc_data, 124, 1},
+	{"pydoc_data.topics", M_pydoc_data__topics, 514550, 0},
+	{"queue", M_queue, 17336, 0},
+	{"quopri", M_quopri, 9545, 0},
+	{"random", M_random, 35223, 0},
+	{"re", M_re, 19351, 1},
+	{"re._casefix", M_re___casefix, 1801, 0},
+	{"re._compiler", M_re___compiler, 26751, 0},
+	{"re._constants", M_re___constants, 5359, 0},
+	{"re._parser", M_re___parser, 43549, 0},
+	{"reprlib", M_reprlib, 10094, 0},
+	{"rlcompleter", M_rlcompleter, 8557, 0},
+	{"runpy", M_runpy, 14376, 0},
+	{"secrets", M_secrets, 2489, 0},
+	{"selectors", M_selectors, 26340, 0},
+	{"shlex", M_shlex, 14835, 0},
+	{"shutil", M_shutil, 67497, 0},
+	{"signal", M_signal, 4523, 0},
+	{"site", M_site, 30528, 0},
+	{"socket", M_socket, 42155, 0},
+	{"socketserver", M_socketserver, 34494, 0},
+	{"ssl", M_ssl, 65177, 0},
+	{"stat", M_stat, 5508, 0},
+	{"statistics", M_statistics, 71041, 0},
+	{"string", M_string, 11636, 0},
+	{"struct", M_struct, 310, 0},
+	{"subprocess", M_subprocess, 81450, 0},
+	{"sysconfig", M_sysconfig, 24012, 1},
+	{"tarfile", M_tarfile, 122339, 0},
+	{"tempfile", M_tempfile, 40688, 0},
+	{"test", M_test, 118, 1},
+	{"test.support", M_test__support, 111160, 1},
+	{"test.support.import_helper", M_test__support__import_helper, 14668, 0},
+	{"test.support.os_helper", M_test__support__os_helper, 30892, 0},
+	{"test.support.script_helper", M_test__support__script_helper, 13784, 0},
+	{"textwrap", M_textwrap, 17915, 0},
+	{"threading", M_threading, 63187, 0},
+	{"tkinter", M_tkinter, 256309, 1},
+	{"tkinter.constants", M_tkinter__constants, 1917, 0},
+	{"token", M_token, 3549, 0},
+	{"tokenize", M_tokenize, 24789, 0},
+	{"traceback", M_traceback, 70288, 0},
+	{"tracemalloc", M_tracemalloc, 27386, 0},
+	{"tty", M_tty, 2649, 0},
+	{"types", M_types, 15528, 0},
+	{"typing", M_typing, 154475, 0},
+	{"unittest", M_unittest, 3260, 1},
+	{"unittest._log", M_unittest___log, 4814, 0},
+	{"unittest.async_case", M_unittest__async_case, 6490, 0},
+	{"unittest.case", M_unittest__case, 70407, 0},
+	{"unittest.loader", M_unittest__loader, 22281, 0},
+	{"unittest.main", M_unittest__main, 13239, 0},
+	{"unittest.mock", M_unittest__mock, 125999, 0},
+	{"unittest.result", M_unittest__result, 12996, 0},
+	{"unittest.runner", M_unittest__runner, 17004, 0},
+	{"unittest.signals", M_unittest__signals, 3648, 0},
+	{"unittest.suite", M_unittest__suite, 15926, 0},
+	{"unittest.util", M_unittest__util, 7142, 0},
+	{"urllib", M_urllib, 120, 1},
+	{"urllib.error", M_urllib__error, 3737, 0},
+	{"urllib.parse", M_urllib__parse, 50274, 0},
+	{"urllib.request", M_urllib__request, 115488, 0},
+	{"urllib.response", M_urllib__response, 4576, 0},
+	{"warnings", M_warnings, 29516, 0},
+	{"weakref", M_weakref, 31793, 0},
+	{"webbrowser", M_webbrowser, 26861, 0},
+	{"xml", M_xml, 692, 1},
+	{"xml.parsers", M_xml__parsers, 302, 1},
+	{"xml.parsers.expat", M_xml__parsers__expat, 401, 0},
+	{"xmlrpc", M_xmlrpc, 120, 1},
+	{"xmlrpc.client", M_xmlrpc__client, 51959, 0},
+	{"zipfile", M_zipfile, 103301, 1},
+	{"zipfile._path", M_zipfile___path, 20066, 1},
+	{"zipfile._path.glob", M_zipfile___path__glob, 5350, 0},
+	{"zipimport", M_zipimport, 26492, 0},
+
+	{"dos", NULL, 0},
+	{"dospath", NULL, 0},
+	{"mac", NULL, 0},
+	{"macfs", NULL, 0},
+	{"MACFS", NULL, 0},
+	{"posix", NULL, 0},
+    {0, 0, 0} /* sentinel */
+};
+
+int
+main(int argc, char **argv)
+{
+        extern int Py_FrozenMain(int, char **);
+
+        PyImport_FrozenModules = _PyImport_FrozenModules;
+        return Py_FrozenMain(argc, argv);
+}
+
