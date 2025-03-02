@@ -7,6 +7,7 @@
   Traceback (most recent call last):
     File "D:\Python-3.13.0\PC\validate_ucrtbase.py", line 8, in <module>
       from ctypes import (c_buffer, POINTER, byref, create_unicode_buffer,
+                          Structure, WinDLL)
     File "<frozen ctypes>", line 8, in <module>
   ImportError: DLL load failed while importing _ctypes: %1 不是有效的 Win32 应用程序。
 D:\Python-3.13.0\PCbuild\python.vcxproj(137,5): warning MSB3073: 命令“setlocal

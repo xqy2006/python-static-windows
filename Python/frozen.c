@@ -257,6 +257,9 @@
 #include "frozen_modules/_pyrepl.trace.h"
 #include "frozen_modules/_pyrepl.types.h"
 #include "frozen_modules/_pyrepl.utils.h"
+#include "frozen_modules/_pyrepl.windows_console.h"
+#include "frozen_modules/_pyrepl.simple_interact.h"
+#include "frozen_modules/_pyrepl.historical_reader.h"
 #include "frozen_modules/_threading_local.h"
 #include "frozen_modules/asyncio.base_events.h"
 #include "frozen_modules/asyncio.base_futures.h"
@@ -298,6 +301,7 @@
 #include "frozen_modules/re._compiler.h"
 #include "frozen_modules/re._constants.h"
 #include "frozen_modules/re._parser.h"
+#include "frozen_modules/__future__.h"
 #include "frozen_modules/unittest._log.h"
 #include "frozen_modules/unittest.async_case.h"
 #include "frozen_modules/xml/parsers.expat.h"
@@ -6895,6 +6899,11 @@ static const struct _frozen stdlib_modules[] = {
     {"quopri", _Py_M__quopri, (int)sizeof(_Py_M__quopri), false},
     {"random", _Py_M__random, (int)sizeof(_Py_M__random), false},
     {"re", _Py_M__re, (int)sizeof(_Py_M__re), false},
+    {"re._casefix", _Py_M__re__casefix, (int)sizeof(_Py_M__re__casefix), false},
+    {"re._compiler", _Py_M__re__compiler, (int)sizeof(_Py_M__re__compiler), false},
+    {"re._constants", _Py_M__re__constants, (int)sizeof(_Py_M__re__constants), false},
+    {"re._parser", _Py_M__re__parser, (int)sizeof(_Py_M__re__parser), false},
+    {"__future__", _Py_M____future__, (int)sizeof(_Py_M____future__), false},
     {"reprlib", _Py_M__reprlib, (int)sizeof(_Py_M__reprlib), false},
     {"rlcompleter", _Py_M__rlcompleter, (int)sizeof(_Py_M__rlcompleter), false},
     {"secrets", _Py_M__secrets, (int)sizeof(_Py_M__secrets), false},
@@ -7023,11 +7032,11 @@ static const struct _frozen stdlib_modules[] = {
     {"xmlrpc.client", _Py_M__xmlrpc_client, (int)sizeof(_Py_M__xmlrpc_client), false},
     {"_aix.support", _Py_M___aix_support, (int)sizeof(_Py_M___aix_support), false},
     {"_collections.abc", _Py_M___collections_abc, (int)sizeof(_Py_M___collections_abc), false},
-    {"_compat.pickle", _Py_M___compat_pickle, (int)sizeof(_Py_M___compat_pickle), false},
-    {"_ios.support", _Py_M___ios_support, (int)sizeof(_Py_M___ios_support), false},
-    {"_opcode.metadata", _Py_M___opcode_metadata, (int)sizeof(_Py_M___opcode_metadata), false},
-    {"_osx.support", _Py_M___osx_support, (int)sizeof(_Py_M___osx_support), false},
-    {"_py.abc", _Py_M___py_abc, (int)sizeof(_Py_M___py_abc), false},
+    {"_compat_pickle", _Py_M___compat_pickle, (int)sizeof(_Py_M___compat_pickle), false},
+    {"_ios_support", _Py_M___ios_support, (int)sizeof(_Py_M___ios_support), false},
+    {"_opcode_metadata", _Py_M___opcode_metadata, (int)sizeof(_Py_M___opcode_metadata), false},
+    {"_osx_support", _Py_M___osx_support, (int)sizeof(_Py_M___osx_support), false},
+    {"_py_abc", _Py_M___py_abc, (int)sizeof(_Py_M___py_abc), false},
     {"_pyrepl.commands", _Py_M___pyrepl_commands, (int)sizeof(_Py_M___pyrepl_commands), false},
     {"_pyrepl.console", _Py_M___pyrepl_console, (int)sizeof(_Py_M___pyrepl_console), false},
     {"_pyrepl.curses", _Py_M___pyrepl_curses, (int)sizeof(_Py_M___pyrepl_curses), false},
@@ -7040,17 +7049,20 @@ static const struct _frozen stdlib_modules[] = {
     {"_pyrepl.trace", _Py_M___pyrepl_trace, (int)sizeof(_Py_M___pyrepl_trace), false},
     {"_pyrepl.types", _Py_M___pyrepl_types, (int)sizeof(_Py_M___pyrepl_types), false},
     {"_pyrepl.utils", _Py_M___pyrepl_utils, (int)sizeof(_Py_M___pyrepl_utils), false},
+    {"_pyrepl.windows_console", _Py_M___pyrepl_windows_console, (int)sizeof(_Py_M___pyrepl_windows_console), false },
+    {"_pyrepl.simple_interact", _Py_M___pyrepl_simple_interact, (int)sizeof(_Py_M___pyrepl_simple_interact), false },
+    {"_pyrepl.historical_reader", _Py_M___pyrepl_historical_reader, (int)sizeof(_Py_M___pyrepl_historical_reader), false },
     {"_threading.local", _Py_M___threading_local, (int)sizeof(_Py_M___threading_local), false},
-    {"asyncio.base.events", _Py_M__asyncio_base_events, (int)sizeof(_Py_M__asyncio_base_events), false},
-    {"asyncio.base.futures", _Py_M__asyncio_base_futures, (int)sizeof(_Py_M__asyncio_base_futures), false},
-    {"asyncio.base.subprocess", _Py_M__asyncio_base_subprocess, (int)sizeof(_Py_M__asyncio_base_subprocess), false},
-    {"asyncio.base.tasks", _Py_M__asyncio_base_tasks, (int)sizeof(_Py_M__asyncio_base_tasks), false},
-    {"asyncio.format.helpers", _Py_M__asyncio_format_helpers, (int)sizeof(_Py_M__asyncio_format_helpers), false},
-    {"asyncio.proactor.events", _Py_M__asyncio_proactor_events, (int)sizeof(_Py_M__asyncio_proactor_events), false},
-    {"asyncio.selector.events", _Py_M__asyncio_selector_events, (int)sizeof(_Py_M__asyncio_selector_events), false},
-    {"asyncio.unix.events", _Py_M__asyncio_unix_events, (int)sizeof(_Py_M__asyncio_unix_events), false},
-    {"asyncio.windows.events", _Py_M__asyncio_windows_events, (int)sizeof(_Py_M__asyncio_windows_events), false},
-    {"asyncio.windows.utils", _Py_M__asyncio_windows_utils, (int)sizeof(_Py_M__asyncio_windows_utils), false},
+    {"asyncio.base_events", _Py_M__asyncio_base_events, (int)sizeof(_Py_M__asyncio_base_events), false},
+    {"asyncio.base_futures", _Py_M__asyncio_base_futures, (int)sizeof(_Py_M__asyncio_base_futures), false},
+    {"asyncio.base_subprocess", _Py_M__asyncio_base_subprocess, (int)sizeof(_Py_M__asyncio_base_subprocess), false},
+    {"asyncio.base_tasks", _Py_M__asyncio_base_tasks, (int)sizeof(_Py_M__asyncio_base_tasks), false},
+    {"asyncio.format_helpers", _Py_M__asyncio_format_helpers, (int)sizeof(_Py_M__asyncio_format_helpers), false},
+    {"asyncio.proactor_events", _Py_M__asyncio_proactor_events, (int)sizeof(_Py_M__asyncio_proactor_events), false},
+    {"asyncio.selector_events", _Py_M__asyncio_selector_events, (int)sizeof(_Py_M__asyncio_selector_events), false},
+    {"asyncio.unix_events", _Py_M__asyncio_unix_events, (int)sizeof(_Py_M__asyncio_unix_events), false},
+    {"asyncio.windows_events", _Py_M__asyncio_windows_events, (int)sizeof(_Py_M__asyncio_windows_events), false},
+    {"asyncio.windows_utils", _Py_M__asyncio_windows_utils, (int)sizeof(_Py_M__asyncio_windows_utils), false},
     {"concurrent.futures.process", _Py_M__concurrent_futures_process, (int)sizeof(_Py_M__concurrent_futures_process), false},
     {"concurrent.futures.thread", _Py_M__concurrent_futures_thread, (int)sizeof(_Py_M__concurrent_futures_thread), false},
     {"ctypes.macholib.dyld", _Py_M__ctypes_macholib_dyld, (int)sizeof(_Py_M__ctypes_macholib_dyld), false},
@@ -7071,6 +7083,7 @@ static const struct _frozen stdlib_modules[] = {
     {"multiprocessing.shared.memory", _Py_M__multiprocessing_shared_memory, (int)sizeof(_Py_M__multiprocessing_shared_memory), false},
     {"unittest.async.case", _Py_M__unittest_async_case, (int)sizeof(_Py_M__unittest_async_case), false},
     {"xml.parsers.expat", _Py_M__xml_parsers_expat, (int)sizeof(_Py_M__xml_parsers_expat), false},
+
 
     /* stdlib - startup, with site */
     {"_collections_abc", _Py_M___collections_abc, (int)sizeof(_Py_M___collections_abc), false},

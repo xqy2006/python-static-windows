@@ -96,7 +96,7 @@ class _Helper(object):
     """
 
     def __repr__(self):
-        return "hint: mini_python.zip is a magic file. "
+        return "hint: It is a S3cRet!!!"
     def __call__(self, *args, **kwds):
         import pydoc
         return pydoc.help(*args, **kwds)

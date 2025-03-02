@@ -2596,23 +2596,23 @@ D:\Python-3.13.0\frozen_modules\frozen_extensions.c(1,9): warning C4005: “Py_B
   M_asyncio__runners.c
   M_asyncio__selector_events.c
   M_asyncio__sslproto.c
-D:\Python-3.13.0\frozen_modules\frozen_extensions.c(13,5): warning C4047: “return”:“PyObject *”与“int”的间接级别不同
   M_asyncio__staggered.c
   M_asyncio__streams.c
   M_asyncio__subprocess.c
   M_asyncio__taskgroups.c
+D:\Python-3.13.0\frozen_modules\frozen_extensions.c(13,5): warning C4047: “return”:“PyObject *”与“int”的间接级别不同
 D:\Modules\extras\tqdm\tqdm__cli.c(18029,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Modules\extras\tqdm\tqdm__cli.c(18456,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
   M_asyncio__tasks.c
   M_asyncio__threads.c
   M_asyncio__timeouts.c
+D:\Modules\extras\codecs.c(32419,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
   M_asyncio__transports.c
   M_asyncio__trsock.c
-D:\Modules\extras\tqdm\tqdm__utils.c(22742,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
   M_asyncio__unix_events.c
-D:\Modules\extras\tqdm\tqdm__utils.c(23679,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
+D:\Modules\extras\tqdm\tqdm__utils.c(22742,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
   M_asyncio__windows_events.c
-D:\Modules\extras\codecs.c(32419,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
+D:\Modules\extras\tqdm\tqdm__utils.c(23679,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
   M_asyncio__windows_utils.c
   M_base64.c
   M_bdb.c
@@ -2623,13 +2623,13 @@ D:\Modules\extras\codecs.c(32419,17): warning C4244: “=”: 从“Py_ssize_t�
   M_code.c
   M_codecs.c
   M_codeop.c
+  M_collections.c
+  M_collections__abc.c
 D:\Modules\extras\tqdm\tqdm__std.c(45133,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Modules\extras\tqdm\tqdm__std.c(45266,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Modules\extras\tqdm\tqdm__std.c(45399,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
-  M_collections.c
-  M_collections__abc.c
-D:\Modules\extras\tqdm\tqdm__std.c(47181,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
   M_concurrent.c
+D:\Modules\extras\tqdm\tqdm__std.c(47181,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
   M_concurrent__futures.c
   M_concurrent__futures__process.c
   M_concurrent__futures__thread.c
@@ -3006,17 +3006,17 @@ D:\Python-3.13.0\Modules\encodings\idna.c(15010,17): warning C4244: “=”: 从
   utf_16.c
   utf_16_be.c
   utf_16_le.c
-D:\Python-3.13.0\Modules\encodings\punycode.c(12212,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
-D:\Python-3.13.0\Modules\encodings\punycode.c(12669,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
   utf_32.c
+  utf_32_be.c
+  utf_32_le.c
+D:\Python-3.13.0\Modules\encodings\punycode.c(12212,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
+  utf_7.c
+  utf_8.c
+D:\Python-3.13.0\Modules\encodings\punycode.c(12669,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Python-3.13.0\Modules\encodings\punycode.c(12809,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Python-3.13.0\Modules\encodings\punycode.c(12949,48): warning C4244: “函数”: 从“Py_ssize_t”转换到“int”，可能丢失数据
 D:\Python-3.13.0\Modules\encodings\punycode.c(12985,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Python-3.13.0\Modules\encodings\punycode.c(13124,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
-  utf_32_be.c
-  utf_32_le.c
-  utf_7.c
-  utf_8.c
   utf_8_sig.c
   uu_codec.c
   zlib_codec.c
@@ -3035,15 +3035,15 @@ D:\Python-3.13.0\Modules\encodings\punycode.c(13124,17): warning C4244: “=”:
   Hacl_Hash_MD5.c
   Hacl_Hash_SHA1.c
   Hacl_Hash_SHA2.c
-D:\Python-3.13.0\Modules\encodings\utf_8_sig.c(9435,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
-D:\Python-3.13.0\Modules\encodings\uu_codec.c(7616,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
+  Hacl_Hash_SHA3.c
+  _heapqmodule.c
 D:\Python-3.13.0\Modules\main1.c(5691,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
+D:\Python-3.13.0\Modules\encodings\uu_codec.c(7616,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Python-3.13.0\Modules\encodings\uu_codec.c(8264,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Python-3.13.0\Modules\encodings\uu_codec.c(8395,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Python-3.13.0\Modules\encodings\uu_codec.c(8535,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
 D:\Python-3.13.0\Modules\encodings\uu_codec.c(8675,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
-  Hacl_Hash_SHA3.c
-  _heapqmodule.c
+D:\Python-3.13.0\Modules\encodings\utf_8_sig.c(9435,17): warning C4244: “=”: 从“Py_ssize_t”转换到“long”，可能丢失数据
   _json.c
   _localemodule.c
   _lsprof.c

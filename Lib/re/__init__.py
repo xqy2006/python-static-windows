@@ -1,3 +1,5 @@
+__package__ = 're'
+__path__ = [__name__]
 #
 # Secret Labs' Regular Expression Engine
 #

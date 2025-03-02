@@ -190,7 +190,7 @@ pymain_header(const PyConfig *config)
         return;
     }
 
-    fprintf(stderr, "I have a secret, can you find it? \n\n\nPython %s on %s\n", Py_GetVersion(), Py_GetPlatform());
+    fprintf(stderr, "\n\nI have a secret, can you find it? \n\n\nPython %s on %s\n", Py_GetVersion(), Py_GetPlatform());
     if (config->site_import) {
         fprintf(stderr, "%s\n", COPYRIGHT);
     }

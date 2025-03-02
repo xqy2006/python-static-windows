@@ -1,3 +1,5 @@
+__package__ = '_pyrepl'
+__path__ = [__name__]
 # Important: don't add things to this module, as they will end up in the REPL's
 # default globals.  Use _pyrepl.main instead.
 

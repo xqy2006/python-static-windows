@@ -1,3 +1,5 @@
+__package__ = 'multiprocessing'
+__path__ = [__name__]
 #
 # Package analogous to 'threading.py' but using processes
 #
